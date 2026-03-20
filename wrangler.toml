@@ -1,0 +1,6 @@
+name = "genetics-ebook"
+compatibility_date = "2025-03-20"
+
+[assets]
+directory = "."
+not_found_handling = "404-page"
