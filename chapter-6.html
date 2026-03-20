@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="How mRNA vaccines work, how COVID-19 proved the platform at scale, and how BioNTech and Moderna are applying it to personalized cancer vaccines.">
+  <title>Chapter 6: mRNA Vaccines &mdash; Understanding Genetics in the Age of AI</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <div id="reading-progress" aria-hidden="true"></div>
+
+  <a href="#content" class="skip-link">Skip to content</a>
+
+  <header class="top-bar">
+    <a href="index.html">Understanding Genetics in the Age of AI</a>
+    <span class="chapter-label">Chapter 6</span>
+  </header>
+
+  <main id="content" class="container">
+    <div class="chapter-header">
+      <span class="chapter-number">Chapter 6</span>
+      <h1 class="chapter-title">mRNA Vaccines &mdash; Software Updates for Your Immune System</h1>
+    </div>
+
+    <article class="content">
+      <h2>6.1: What mRNA Vaccines Actually Are</h2>
+
+      <p>The most common misconception first: mRNA vaccines are not gene therapy. They do not alter your DNA. They do not enter the cell's nucleus. They are temporary instructions, a self-destructing message that tells cells to produce a specific protein for a short period, after which the mRNA is naturally degraded. If your genome is the operating system, an mRNA vaccine is a temporary software patch that runs for a few days and deletes itself. No permanent changes.</p>
+
+      <p>The process, step by step: a synthetic mRNA molecule, designed in a lab, is packaged inside a tiny fat bubble called a lipid nanoparticle (LNP). When injected, LNPs are taken up by cells through endocytosis. Inside the cell, the LNP releases its mRNA, and ribosomes read it and produce the encoded protein. That protein is processed, chopped into peptide fragments and displayed on MHC molecules on the cell surface. Patrolling immune cells encounter the fragments, recognize them as foreign, and mount an immune response, producing antibodies and training T-cells. If the immune system encounters that protein again (on a virus or cancer cell), it responds immediately.</p>
+
+      <figure class="figure">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448.05 420" role="img" aria-labelledby="ch6-svg-title" style="--bg:#ffffff;--fg:#1f2328;--line:#d1d9e0;--accent:#1E6B6B;--muted:#59636e;background:var(--bg)">
+<title id="ch6-svg-title">mRNA vaccine delivery: five steps from LNP injection through cell endocytosis, mRNA release, ribosome protein production, to MHC display and immune response</title>
+<style>
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 30%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="4.8" refX="8" refY="2.4" orient="auto">
+    <polygon points="0 0, 8 2.4, 0 4.8" fill="var(--_arrow)" />
+  </marker>
+</defs>
+<polyline points="224.025,76 224.025,116" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="224.025,152 224.025,192" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="224.025,228 224.025,268" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="224.025,304 224.025,344" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<rect x="109.025" y="40" width="230" height="36" rx="0" ry="0" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="0.75" />
+<rect x="81.525" y="116" width="285" height="36" rx="0" ry="0" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="0.75" />
+<rect x="76.525" y="192" width="295" height="36" rx="0" ry="0" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="0.75" />
+<rect x="76.525" y="268" width="295" height="36" rx="0" ry="0" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="0.75" />
+<rect x="69.025" y="344" width="310" height="36" rx="0" ry="0" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="0.75" />
+<text x="224.025" y="58" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1a1a">1. LNP + mRNA injected</text>
+<text x="224.025" y="134" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1a1a">2. Cell absorbs LNP — endocytosis</text>
+<text x="224.025" y="210" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1a1a">3. Endosome acidifies, mRNA released</text>
+<text x="224.025" y="286" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1a1a">4. Ribosome produces antigen protein</text>
+<text x="224.025" y="362" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1a1a">5. Protein fragments — immune response</text>
+</svg>
+        <figcaption>Lipid nanoparticles smuggle mRNA past the cell membrane. The cell’s own ribosomes do the rest — no viral vector, no DNA involved.</figcaption>
+      </figure>
+
+      <p>The engineering is sophisticated. A chemical cap structure (5' cap) mimics natural mRNA for cellular recognition. Untranslated regions (UTRs) are optimized for stability and translation efficiency. The coding sequence uses codon optimization to choose codons the cellular machinery translates most efficiently. One of the most important innovations is replacing uridine with N1-methylpseudouridine, which reduces unwanted inflammatory responses and increases stability, the same modification used in COVID-19 vaccines. A poly-A tail protects the mRNA from degradation. Each modification represents years of research, and together they transform mRNA from a fragile molecule destroyed in seconds into a viable therapeutic platform.</p>
+
+      <h2>6.2: COVID Proved It Works at Scale</h2>
+
+      <p>There is an irony in the mRNA vaccine story. Both BioNTech and Moderna, household names from the pandemic, were founded not as infectious disease companies but as cancer vaccine companies. BioNTech was founded in 2008 by Ugur Sahin and Ozlem Tureci, immunologists developing personalized cancer immunotherapies. Moderna (a portmanteau of "modified RNA") was founded in 2010 with a similar cancer focus. Both spent years developing the mRNA platform, lipid nanoparticle delivery, and manufacturing processes. When COVID-19 emerged, they were positioned to pivot.</p>
+
+      <p>The speed remains striking. On January 10, 2020, Chinese researchers published the genetic sequence of SARS-CoV-2. Within a single weekend, BioNTech's team designed their vaccine candidate, BNT162b2, using only published sequence data. No physical virus needed. The mRNA vaccine was a digital product: once you have the sequence, you have the design. Moderna's timeline was similar. By December 2020, both had emergency authorization, and by the end of 2021, more than twelve billion doses had been manufactured and distributed worldwide. The pandemic proved beyond doubt that mRNA technology works, can be developed with speed, and can be manufactured at global scale.</p>
+
+      <p>Now both companies are returning to their original mission. BioNTech's autogene cevumeran (BNT122) is in trials for pancreatic ductal adenocarcinoma, which has a five-year survival rate below ten percent. Early results showed the vaccine induced strong T-cell responses against patient-specific neoantigens. Moderna's mRNA-4157 (V940), combined with Keytruda, showed a forty-four percent reduction in the risk of cancer recurrence or death in the Phase 2 KEYNOTE-942 melanoma trial. These are clinical trial data in human patients. The personalized cancer vaccine era has arrived.</p>
+
+      <h2>6.3: Lipid Nanoparticles &mdash; the Delivery Envelope</h2>
+
+      <p>You can design the most brilliant mRNA sequence, but if you cannot get it inside cells, it is useless. Naked mRNA injected into the body would be destroyed within seconds by RNases, enzymes abundant in blood and tissues that exist to degrade stray RNA. The solution is lipid nanoparticles, roughly one hundred nanometers in diameter (about a thousandth the width of a human hair), composed of four types of lipid molecules. The ionizable lipid is the key component: positively charged at low pH (binding the negatively charged mRNA during manufacturing) but neutral at physiological pH (preventing toxic interactions after injection). Cholesterol provides structural stability. A phospholipid forms the membrane. A PEG-lipid coats the surface, preventing clumping and extending circulation time.</p>
+
+      <p>When injected into muscle tissue, <span class="term" data-def="A ~100 nm fat bubble that encapsulates mRNA and smuggles it into cells, enabling mRNA vaccines">lipid nanoparticles</span> are taken up by cells through endocytosis, ending up in compartments called endosomes. As the endosome acidifies, the ionizable lipid switches to its charged form, disrupting the endosomal membrane and releasing the <span class="term" data-def="Messenger RNA — a temporary copy of a gene, read by ribosomes to build a protein">mRNA</span> into the cytoplasm, a process called endosomal escape. The mRNA is read by ribosomes, the protein is produced, and fragments are displayed on <span class="term" data-def="Major Histocompatibility Complex — proteins on cell surfaces that display peptide fragments for immune surveillance">MHC</span> molecules for immune surveillance. Professor Pall Thordarson at the UNSW RNA Institute used this technology to package Rosie's vaccine, the same platform proven during COVID-19, applied to a single patient's custom treatment.</p>
+
+      <div class="key-takeaways">
+        <h3>Key Takeaways</h3>
+        <ul>
+          <li>mRNA vaccines deliver instructions, not the antigen itself — the patient's own cells build the target protein temporarily, then stop.</li>
+          <li><span class="term" data-def="A ~100 nm fat bubble that encapsulates mRNA and smuggles it into cells, enabling mRNA vaccines">Lipid nanoparticles</span> protect fragile mRNA from degradation and deliver it into cells via endosomal escape.</li>
+          <li>BioNTech and Moderna were originally cancer vaccine companies — COVID-19 proved their platform at global scale.</li>
+          <li>Personalized cancer mRNA vaccines (mRNA-4157, BNT122) are in clinical trials with early results showing strong T-cell responses.</li>
+        </ul>
+      </div>
+    </article>
+
+    <nav class="bottom-nav" aria-label="Chapter navigation">
+      <a href="chapter-5.html" class="prev">Chapter 5</a>
+      <a href="chapter-7.html" class="next">Chapter 7</a>
+    </nav>
+  </main>
+
+  <footer class="container">
+    <p class="disclaimer">This book is intended for educational purposes only and does not constitute medical advice. Always consult qualified healthcare professionals for medical decisions.</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

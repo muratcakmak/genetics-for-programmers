@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CRISPR's history from Spanish salt marshes to Nobel Prize, how Cas9 cuts DNA, base editors, and the first FDA-approved CRISPR therapy for sickle cell disease.">
+  <title>Chapter 8: CRISPR &mdash; Understanding Genetics in the Age of AI</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <div id="reading-progress" aria-hidden="true"></div>
+
+  <a href="#content" class="skip-link">Skip to content</a>
+
+  <header class="top-bar">
+    <a href="index.html">Understanding Genetics in the Age of AI</a>
+    <span class="chapter-label">Chapter 8</span>
+  </header>
+
+  <main id="content" class="container">
+    <div class="chapter-header">
+      <span class="chapter-number">Chapter 8</span>
+      <h1 class="chapter-title">CRISPR &mdash; Editing the Code Itself</h1>
+    </div>
+
+    <article class="content">
+      <h2>8.1: From Yogurt to Nobel Prize</h2>
+
+      <p>In 1993, a Spanish microbiologist named Francisco Mojica was studying salt-loving archaea in the marshes of Alicante when he noticed something odd in their DNA: strange repetitive sequences, evenly spaced, with unique sequences between them. He puzzled over these for years, and in 2003 made a breakthrough. The unique sequences matched the DNA of viruses that had previously infected the archaea. The bacteria were keeping a genetic record of past infections, a molecular mugshot book. They were using these stored sequences to recognize and destroy returning viruses. Bacteria, it turned out, had an adaptive immune system. The repetitive sequences had been named CRISPR in 2002 — Clustered Regularly Interspaced Short Palindromic Repeats — but Mojica's breakthrough revealed what they actually did.</p>
+
+      <p>In 2012, Jennifer Doudna at UC Berkeley and Emmanuelle Charpentier at Umeå University and the University of Vienna published a landmark paper showing this bacterial defense system could be reprogrammed to edit DNA in any organism. The system uses two components. A guide RNA, a short sequence matching the DNA target, directs a protein called Cas9 to the exact genomic location where a cut should be made. Change the guide RNA, change the target. Molecular GPS plus molecular scissors. Feng Zhang at the Broad Institute demonstrated the following year that CRISPR-Cas9 could edit genes in human cells, opening the door to therapeutics.</p>
+
+      <p>In 2020, Doudna and Charpentier received the Nobel Prize in Chemistry, the fastest Nobel ever awarded for a biological tool, reflecting both the magnitude and the immediate practical impact. (A lengthy patent battle between UC Berkeley and the Broad Institute over CRISPR rights in eukaryotic cells was initially resolved in 2022 in the Broad Institute's favor, though appeals have continued.) CRISPR is now the most widely used gene-editing technology in the world, employed in thousands of laboratories and increasingly in clinical applications.</p>
+
+      <h2>8.2: How It Works</h2>
+
+      <p>The most intuitive way to understand CRISPR is as a molecular Find-and-Replace. You provide a guide RNA specifying the "Find" term, about twenty DNA letters matching the target gene. Cas9 scans the DNA, searching for a match. When it finds the target adjacent to a short motif called a PAM sequence (NGG, any nucleotide followed by two guanines), Cas9 cuts both strands of the DNA helix at that location. The cell attempts repair, and depending on the pathway, one of two things happens. If the cell uses error-prone "non-homologous end joining," the repair often introduces insertions or deletions that disrupt the gene, a knockout. If a template DNA sequence is provided, the cell can use "homology-directed repair" to insert a specific correction or new sequence.</p>
+
+      <!-- CRISPR Step-Through -->
+      <figure class="figure">
+        <div class="stepper" tabindex="0" aria-label="CRISPR mechanism step-through diagram">
+
+          <!-- Step 1: DNA target -->
+          <div class="step active" aria-label="Step 1 of 4: Target gene in the genome">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 100" role="img" aria-label="Double-stranded DNA with target gene region highlighted">
+              <!-- Top strand -->
+              <line x1="30" y1="38" x2="490" y2="38" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
+              <!-- Bottom strand -->
+              <line x1="30" y1="58" x2="490" y2="58" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
+              <!-- Target region highlight -->
+              <rect x="170" y="26" width="150" height="44" rx="4" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+              <text x="245" y="48" text-anchor="middle" dy="0.35em" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#1E6B6B">TARGET GENE</text>
+              <!-- Labels -->
+              <text x="85" y="38" text-anchor="middle" dy="0.35em" font-family="Inter,sans-serif" font-size="10" fill="#6b6b6b">5'</text>
+              <text x="85" y="58" text-anchor="middle" dy="0.35em" font-family="Inter,sans-serif" font-size="10" fill="#6b6b6b">3'</text>
+              <text x="30" y="85" font-family="Inter,sans-serif" font-size="10" fill="#6b6b6b">DNA double strand (chromosome)</text>
+            </svg>
+            <p class="step-caption">A target gene sits within the cell's genome. The double helix stores two complementary strands. Before CRISPR arrives, the gene is intact — and in disease like sickle cell, a single wrong letter may be causing harm.</p>
+          </div>
+
+          <!-- Step 2: Cas9 + guide RNA descends -->
+          <div class="step" aria-label="Step 2 of 4: Cas9 and guide RNA find the target">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 140" role="img" aria-label="Cas9 and guide RNA descending toward target, PAM sequence labeled">
+              <!-- DNA strands -->
+              <line x1="30" y1="100" x2="490" y2="100" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
+              <line x1="30" y1="120" x2="490" y2="120" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
+              <!-- Target region -->
+              <rect x="170" y="88" width="150" height="44" rx="4" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+              <text x="235" y="110" text-anchor="middle" dy="0.35em" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#1E6B6B">TARGET GENE</text>
+              <!-- PAM label -->
+              <rect x="323" y="88" width="38" height="44" rx="4" fill="#fff3e0" stroke="#ff9800" stroke-width="1.5"/>
+              <text x="342" y="110" text-anchor="middle" dy="0.35em" font-family="Inter,sans-serif" font-size="9" font-weight="600" fill="#e65100">NGG</text>
+              <text x="342" y="122" text-anchor="middle" dy="0.35em" font-family="Inter,sans-serif" font-size="8" fill="#e65100">PAM</text>
+              <!-- Cas9 diamond approaching -->
+              <polygon points="245,22 310,55 245,88 180,55" fill="#1E6B6B" stroke="#1a5c5c" stroke-width="1.5"/>
+              <text x="245" y="55" text-anchor="middle" dy="0.35em" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#fff">Cas9</text>
+              <!-- Guide RNA wavy line -->
+              <path d="M245,22 C235,12 255,4 245,0" fill="none" stroke="#4ab8a8" stroke-width="2.5" stroke-linecap="round"/>
+              <text x="260" y="8" font-family="Inter,sans-serif" font-size="9" fill="#4ab8a8">guide RNA</text>
+              <!-- Down arrow -->
+              <line x1="245" y1="88" x2="245" y2="98" stroke="#1E6B6B" stroke-width="2" stroke-dasharray="2,2"/>
+            </svg>
+            <p class="step-caption"><span class="term" data-def="The molecular scissors in CRISPR — an endonuclease enzyme that cuts both DNA strands at a guide-RNA-specified location">Cas9</span> loaded with a guide RNA scans the DNA strand, searching for a 20-letter match. It only cuts adjacent to a <span class="term" data-def="A short DNA motif (NGG) that Cas9 requires adjacent to its target before it will cut">PAM sequence</span> (NGG). When found, it grips the DNA and unwinds it to check the match.</p>
+          </div>
+
+          <!-- Step 3: Cas9 cuts -->
+          <div class="step" aria-label="Step 3 of 4: Cas9 cuts both DNA strands">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 130" role="img" aria-label="Cas9 gripping DNA with scissors at cut site, double-strand break visible">
+              <!-- Cas9 gripping -->
+              <polygon points="245,15 310,48 245,81 180,48" fill="#1E6B6B" stroke="#1a5c5c" stroke-width="1.5"/>
+              <text x="245" y="48" text-anchor="middle" dy="0.35em" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#fff">Cas9</text>
+              <!-- DNA left of cut -->
+              <line x1="30" y1="95" x2="220" y2="95" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
+              <line x1="30" y1="113" x2="220" y2="113" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
+              <!-- Cut site scissors icon -->
+              <text x="235" y="105" font-family="Inter,sans-serif" font-size="20" fill="#e53935">✂</text>
+              <!-- Gap (double strand break) -->
+              <line x1="268" y1="95" x2="490" y2="95" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
+              <line x1="268" y1="113" x2="490" y2="113" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
+              <!-- Gap label -->
+              <text x="245" y="128" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#e53935" font-weight="600">Double-strand break</text>
+            </svg>
+            <p class="step-caption">Cas9 grips the DNA and uses two cutting domains to slice <em>both</em> strands simultaneously — a double-strand break. The cell detects this as an emergency and immediately activates repair pathways.</p>
+          </div>
+
+          <!-- Step 4: Two outcomes -->
+          <div class="step" aria-label="Step 4 of 4: Two repair pathways — knockout or precise edit">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 160" role="img" aria-label="Two branching repair outcomes: error-prone repair disables the gene, template-guided repair makes a precise edit">
+              <!-- Split arrow -->
+              <line x1="260" y1="10" x2="260" y2="40" stroke="#6b6b6b" stroke-width="2"/>
+              <line x1="260" y1="40" x2="130" y2="70" stroke="#6b6b6b" stroke-width="2"/>
+              <line x1="260" y1="40" x2="390" y2="70" stroke="#6b6b6b" stroke-width="2"/>
+              <!-- Left: error-prone -->
+              <rect x="40" y="72" width="180" height="50" rx="4" fill="#fff3e0" stroke="#ff9800" stroke-width="1.5"/>
+              <text x="130" y="92" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#e65100">Error-prone repair</text>
+              <text x="130" y="107" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#e65100">(NHEJ — gene disabled)</text>
+              <!-- Right: precise edit -->
+              <rect x="300" y="72" width="180" height="50" rx="4" fill="#e8f5e9" stroke="#4CAF50" stroke-width="1.5"/>
+              <text x="390" y="92" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#2e7d32">Template repair</text>
+              <text x="390" y="107" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#2e7d32">(HDR — precise edit ✓)</text>
+              <!-- Outcome labels -->
+              <text x="130" y="140" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6b6b6b">Insertions/deletions → knockout</text>
+              <text x="390" y="140" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6b6b6b">Correct sequence inserted</text>
+              <!-- Top label -->
+              <text x="260" y="9" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#6b6b6b">Cell chooses repair pathway</text>
+            </svg>
+            <p class="step-caption">The cell's repair pathway determines the outcome. Error-prone NHEJ (non-homologous end joining) disrupts the gene — useful for knockouts. Template-guided HDR (homology-directed repair) copies a provided sequence — enabling precise corrections like fixing a sickle cell mutation.</p>
+          </div>
+
+          <div class="stepper-controls">
+            <button class="btn-back" aria-label="Previous step">&#8592; Back</button>
+            <button class="btn-next" aria-label="Next step">Next &#8594;</button>
+            <span class="step-counter" aria-live="polite">1 / 4</span>
+          </div>
+        </div>
+        <figcaption>CRISPR is molecular Find-and-Replace: guide RNA finds the sequence, Cas9 cuts, and the cell's repair pathway determines the outcome — knockout or precise edit.</figcaption>
+      </figure>
+
+      <!-- Cas9 3D Viewer -->
+      <figure class="figure">
+        <h3 style="font-family:var(--sans);font-size:0.9rem;font-weight:600;margin-bottom:0.5rem">Live 3D Structure: Cas9–sgRNA–DNA Complex (PDB: 4UN3)</h3>
+        <div id="cas9-viewer" style="width:100%;height:400px;border:1px solid var(--border);border-radius:4px;background:#f8f8f8;"></div>
+        <div style="margin-top:0.6rem;font-family:var(--sans);font-size:0.8rem;color:var(--text-muted);line-height:1.6">
+          <strong>Teal</strong> = Cas9 protein &nbsp;|&nbsp; <strong>Orange</strong> = DNA strands &nbsp;|&nbsp; <strong>Red</strong> = guide RNA<br>
+          <em>Drag to rotate &middot; Scroll to zoom &middot; Double-click to centre</em>
+        </div>
+        <figcaption style="margin-top:0.5rem">The actual crystal structure of Cas9 bound to its guide RNA and target DNA, fetched live from RCSB PDB. Structure determined by Nishimasu et al. (2014), PDB ID: 4UN3.</figcaption>
+      </figure>
+
+      <script src="https://cdn.jsdelivr.net/npm/ngl@2.1.0/dist/ngl.js"></script>
+      <script>
+      (function() {
+        var viewerEl = document.getElementById('cas9-viewer');
+        if (!viewerEl || typeof NGL === 'undefined') return;
+        try {
+          var stage = new NGL.Stage('cas9-viewer', {
+            backgroundColor: 'white',
+            tooltip: true
+          });
+          stage.loadFile('rcsb://4UN3', { defaultRepresentation: false }).then(function(comp) {
+            comp.addRepresentation('cartoon', {
+              colorScheme: 'chainname',
+              colorScale: ['#1E6B6B', '#4ab8a8', '#ff9800', '#e53935']
+            });
+            comp.autoView();
+          }).catch(function() {
+            viewerEl.innerHTML = '<p style="padding:2rem;text-align:center;font-family:var(--sans);font-size:0.84rem;color:var(--text-muted)">3D viewer unavailable offline. Visit <a href="https://www.rcsb.org/3d-view/4UN3" target="_blank" rel="noopener">RCSB PDB 4UN3</a> to view the Cas9 structure.</p>';
+          });
+          window.addEventListener('resize', function() { stage.handleResize(); });
+        } catch(e) {
+          viewerEl.innerHTML = '<p style="padding:2rem;text-align:center;font-family:var(--sans);font-size:0.84rem;color:var(--text-muted)">3D viewer could not be initialised.</p>';
+        }
+      })();
+      </script>
+
+      <!-- original static SVG kept hidden -->
+      <figure class="figure" style="display:none" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 711.4000000000001 690.25" role="img" aria-labelledby="ch8-svg-title" style="--bg:#ffffff;--fg:#1f2328;--line:#d1d9e0;--accent:#1E6B6B;--muted:#59636e;background:var(--bg)">
+<title id="ch8-svg-title">CRISPR mechanism: Cas9 with guide RNA finds DNA target and PAM sequence, cuts both strands, and cell repairs by error-prone pathway to disable gene or template-guided pathway to insert precise edit</title>
+<style>
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 30%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="4.8" refX="8" refY="2.4" orient="auto">
+    <polygon points="0 0, 8 2.4, 0 4.8" fill="var(--_arrow)" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="4.8" refX="0" refY="2.4" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.4, 8 4.8" fill="var(--_arrow)" />
+  </marker>
+</defs>
+<polyline points="341.40000000000003,76 341.40000000000003,116" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="341.40000000000003,422.25 341.40000000000003,462.25" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="341.40000000000003,498.25 341.40000000000003,538.25" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="341.40000000000003,574.25 341.40000000000003,594.25 177.55,594.25 177.55,614.25" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="341.40000000000003,574.25 341.40000000000003,594.25 505.25000000000006,594.25 505.25000000000006,614.25" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<rect x="264.625" y="40" width="153.55" height="36" rx="0" ry="0" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="0.75" />
+<polygon points="341.40000000000003,116 494.52500000000003,269.125 341.40000000000003,422.25 188.27500000000003,269.125" fill="#1E6B6B" stroke="#1a5c5c" stroke-width="0.75" />
+<rect x="246.75000000000003" y="462.25" width="189.3" height="36" rx="0" ry="0" fill="#d4ebeb" stroke="#1E6B6B" stroke-width="0.75" />
+<rect x="253.90000000000003" y="538.25" width="175" height="36" rx="0" ry="0" fill="#f5f5f5" stroke="#ccc" stroke-width="0.75" />
+<rect x="40" y="614.25" width="275.1" height="36" rx="0" ry="0" fill="#fff3e0" stroke="#ff9800" stroke-width="0.75" />
+<rect x="339.1" y="614.25" width="332.3" height="36" rx="0" ry="0" fill="#e8f5e9" stroke="#4CAF50" stroke-width="0.75" />
+<text x="341.4" y="58" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1a1a">DNA double strand</text>
+<text x="341.40000000000003" y="269.125" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#fff">Cas9 + guide RNA finds target + PAM</text>
+<text x="341.40000000000003" y="480.25" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1a1a">Cas9 cuts both strands</text>
+<text x="341.40000000000003" y="556.25" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1a1a">Cell attempts repair</text>
+<text x="177.55" y="632.25" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1a1a">Error-prone repair — gene disabled</text>
+<text x="505.25" y="632.25" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1a1a">Template-guided repair — precise gene edit</text>
+</svg>
+      </figure>
+
+      <p>The technology has evolved beyond cutting. David Liu's laboratory at Harvard developed base editors that chemically convert one DNA letter to another at a specific position without a double-strand break, like using correction fluid on a single letter rather than cutting a word from a sentence. Prime editing, from the same lab, can insert, delete, or replace short sequences without double-strand breaks and without a separate DNA template. These next-generation tools expand the range of safe, precise genetic corrections, addressing one of the main concerns about original CRISPR, the risk of unintended edits at off-target sites.</p>
+
+      <h2>8.3: CRISPR in the Real World</h2>
+
+      <p>On December 8, 2023, the FDA approved Casgevy (exagamglocel autotemcel), the first CRISPR-based therapy, for sickle cell disease. Sickle cell is caused by a single mutation in the hemoglobin gene that makes red blood cells rigid and crescent-shaped, blocking small blood vessels and causing excruciating pain episodes called vaso-occlusive crises. Casgevy edits the patient's own blood stem cells to reactivate fetal hemoglobin, a form normally active only during fetal development that compensates for the defective adult version. In trials, twenty-nine out of thirty patients (ninety-seven percent) were free of vaso-occlusive crises for at least twelve months. The cost is approximately two million dollars for a one-time treatment, but for a disease requiring a lifetime of hospitalizations, transfusions, and pain management, the economics are compelling.</p>
+
+      <p>CRISPR is also reaching beyond human medicine. Gene-edited crops with improved yields, disease resistance, and nutrition are in development, including non-browning mushrooms that received USDA clearance without the lengthy GMO regulatory process, since no foreign DNA is introduced. CRISPR-based diagnostics called SHERLOCK and DETECTR can detect specific viral or bacterial DNA in patient samples in thirty to sixty minutes at five to fifteen dollars, offering point-of-care testing for tuberculosis, Zika, and HPV in resource-limited settings.</p>
+
+      <p>But power demands vigilance. In November 2018, Chinese biophysicist He Jiankui announced he had used CRISPR to edit the CCR5 gene in human embryos, resulting in the birth of twin girls with modified genomes, the first gene-edited babies. The scientific response was nearly unanimously condemnatory. The edits were medically unnecessary (intended to confer HIV resistance), informed consent was inadequate, and the long-term consequences for the children and their potential offspring are unknown. He Jiankui was sentenced to three years in prison. The incident made a point that deserves repeating: the barrier to using these tools is now lower than the barrier to using them wisely. Oversight, regulation, and public understanding are not luxuries. They are prerequisites.</p>
+
+      <div class="key-takeaways">
+        <h3>Key Takeaways</h3>
+        <ul>
+          <li><span class="term" data-def="The molecular scissors in CRISPR — an endonuclease enzyme that cuts both DNA strands at a guide-RNA-specified location">Cas9</span> is a programmable molecular scissors: change the guide RNA, change the genomic address it cuts.</li>
+          <li>The cell's repair pathway determines outcome: NHEJ = gene disruption (knockout); HDR = precise edit (requires a template).</li>
+          <li>The first CRISPR therapy (Casgevy for sickle cell) was FDA-approved December 2023 — 97% of trial patients were crisis-free for ≥12 months.</li>
+          <li>The barrier to <em>using</em> CRISPR is lower than the barrier to using it <em>wisely</em> — governance and ethics are non-optional.</li>
+        </ul>
+      </div>
+    </article>
+
+    <nav class="bottom-nav" aria-label="Chapter navigation">
+      <a href="chapter-7.html" class="prev">Chapter 7</a>
+      <a href="chapter-9.html" class="next">Chapter 9</a>
+    </nav>
+  </main>
+
+  <footer class="container">
+    <p class="disclaimer">This book is intended for educational purposes only and does not constitute medical advice. Always consult qualified healthcare professionals for medical decisions.</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DNA, genes, chromosomes, the Central Dogma, and cancer mutations — the molecular foundation of personalized cancer vaccines explained for non-biologists.">
+  <title>Chapter 1: The Source Code of Life &mdash; Understanding Genetics in the Age of AI</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <div id="reading-progress" aria-hidden="true"></div>
+
+  <a href="#content" class="skip-link">Skip to content</a>
+
+  <header class="top-bar">
+    <a href="index.html">Understanding Genetics in the Age of AI</a>
+    <span class="chapter-label">Chapter 1</span>
+  </header>
+
+  <main id="content" class="container">
+    <div class="chapter-header">
+      <span class="chapter-number">Chapter 1</span>
+      <h1 class="chapter-title">The Source Code of Life</h1>
+    </div>
+
+    <article class="content">
+      <h2>1.1: DNA, the Instruction Manual</h2>
+
+      <p>Every cell in your body, roughly thirty-seven trillion of them, contains a complete copy of your <span class="term" data-def="The complete set of genetic instructions in an organism — ~3 billion base pairs in humans">genome</span>, the full set of genetic instructions that make you who you are. That genome is written in a molecule called <span class="term" data-def="Deoxyribonucleic acid — the molecule storing genetic information using 4 chemical letters: A, T, G, C">DNA</span>. Stretched out, the DNA from a single human cell would measure about two meters. The entire genome contains approximately three billion individual letters of genetic code. Printed in standard book format, it would fill roughly two hundred phone books. All of it is packed into the nucleus of each cell, a compartment too small to see without a microscope.</p>
+
+      <p>The language of DNA uses just four chemical letters: adenine (A), thymine (T), guanine (G), and cytosine (C). These letters pair in a strict way: A always with T, G always with C, forming the rungs of the famous double helix. This structure was described in 1953 by James Watson and Francis Crick, building critically on the X-ray crystallography work of Rosalind Franklin, whose contribution was not fully recognized during her lifetime. Franklin's "Photo 51" provided the key evidence for the helical structure, and her meticulous experimental work was essential to the discovery that launched modern molecular biology.</p>
+
+      <p>Within those three billion letters, specific stretches serve as instructions for building the molecular machines that keep you alive. These stretches are called genes, and humans have between twenty thousand and twenty-five thousand of them. Genes are organized on structures called chromosomes. Humans have twenty-three pairs, forty-six total. Genes make up only about one and a half percent of your total DNA. The rest was once dismissed as "junk DNA," but we now know much of it plays regulatory roles, controlling when, where, and how much of each gene is activated. It is the operating system that decides which programs run and when.</p>
+
+      <p>If you have a computing background, the analogy is direct: your DNA is a hard drive storing all the information. Your genes are individual programs. But a program on a hard drive does nothing until you run it. A gene does nothing until the cell reads it and translates it into a functional product. That process of running the program is called the Central Dogma of molecular biology, and it is the key to understanding everything that follows, from how cancer works to how vaccines fight it.</p>
+
+      <!-- Central Dogma step-through -->
+      <figure class="figure">
+        <div class="stepper" tabindex="0" aria-label="Central Dogma step-through diagram">
+
+          <div class="step active" aria-label="Step 1 of 3: DNA">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 90" role="img" aria-label="DNA highlighted as the starting molecule">
+              <defs>
+                <marker id="cd-arr1" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+                  <polygon points="0 0,7 2.5,0 5" fill="#ccc"/>
+                </marker>
+              </defs>
+              <rect x="30" y="27" width="80" height="36" rx="3" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="2"/>
+              <text x="70" y="45" text-anchor="middle" dy="0.35em" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#1E6B6B">DNA</text>
+              <line x1="110" y1="45" x2="210" y2="45" stroke="#ccc" stroke-width="1.5" stroke-dasharray="4,4" marker-end="url(#cd-arr1)"/>
+              <rect x="215" y="27" width="80" height="36" rx="3" fill="#f5f5f5" stroke="#ccc" stroke-width="1.5"/>
+              <text x="255" y="45" text-anchor="middle" dy="0.35em" font-family="Inter,sans-serif" font-size="14" fill="#ccc">mRNA</text>
+              <line x1="295" y1="45" x2="375" y2="45" stroke="#ccc" stroke-width="1.5" stroke-dasharray="4,4" marker-end="url(#cd-arr1)"/>
+              <rect x="380" y="27" width="80" height="36" rx="3" fill="#f5f5f5" stroke="#ccc" stroke-width="1.5"/>
+              <text x="420" y="45" text-anchor="middle" dy="0.35em" font-family="Inter,sans-serif" font-size="14" fill="#ccc">Protein</text>
+            </svg>
+            <p class="step-caption">The master blueprint, stored in the nucleus. DNA holds all the instructions but never leaves the vault.</p>
+          </div>
+
+          <div class="step" aria-label="Step 2 of 3: Transcription to mRNA">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 90" role="img" aria-label="Transcription arrow and mRNA box appear">
+              <defs>
+                <marker id="cd-arr2a" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+                  <polygon points="0 0,7 2.5,0 5" fill="#1E6B6B"/>
+                </marker>
+                <marker id="cd-arr2b" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+                  <polygon points="0 0,7 2.5,0 5" fill="#ccc"/>
+                </marker>
+              </defs>
+              <rect x="30" y="27" width="80" height="36" rx="3" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+              <text x="70" y="45" text-anchor="middle" dy="0.35em" font-family="Inter,sans-serif" font-size="14" font-weight="500" fill="#1a1a1a">DNA</text>
+              <line x1="110" y1="45" x2="210" y2="45" stroke="#1E6B6B" stroke-width="2" marker-end="url(#cd-arr2a)"/>
+              <text x="160" y="36" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#1E6B6B">Transcription</text>
+              <rect x="215" y="27" width="80" height="36" rx="3" fill="#1E6B6B" stroke="#1a5c5c" stroke-width="1.5"/>
+              <text x="255" y="45" text-anchor="middle" dy="0.35em" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#fff">mRNA</text>
+              <line x1="295" y1="45" x2="375" y2="45" stroke="#ccc" stroke-width="1.5" stroke-dasharray="4,4" marker-end="url(#cd-arr2b)"/>
+              <rect x="380" y="27" width="80" height="36" rx="3" fill="#f5f5f5" stroke="#ccc" stroke-width="1.5"/>
+              <text x="420" y="45" text-anchor="middle" dy="0.35em" font-family="Inter,sans-serif" font-size="14" fill="#ccc">Protein</text>
+            </svg>
+            <p class="step-caption">RNA polymerase copies the gene into <span class="term" data-def="Messenger RNA — a temporary copy of a gene, read by ribosomes to build a protein">mRNA</span>. This temporary copy carries the instructions out of the nucleus to the ribosomes.</p>
+          </div>
+
+          <div class="step" aria-label="Step 3 of 3: Translation to Protein">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 90" role="img" aria-label="Full Central Dogma: DNA to mRNA to Protein">
+              <defs>
+                <marker id="cd-arr3" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+                  <polygon points="0 0,7 2.5,0 5" fill="#1E6B6B"/>
+                </marker>
+              </defs>
+              <rect x="30" y="27" width="80" height="36" rx="3" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+              <text x="70" y="45" text-anchor="middle" dy="0.35em" font-family="Inter,sans-serif" font-size="14" font-weight="500" fill="#1a1a1a">DNA</text>
+              <line x1="110" y1="45" x2="210" y2="45" stroke="#1E6B6B" stroke-width="2" marker-end="url(#cd-arr3)"/>
+              <text x="160" y="36" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#1E6B6B">Transcription</text>
+              <rect x="215" y="27" width="80" height="36" rx="3" fill="#1E6B6B" stroke="#1a5c5c" stroke-width="1.5"/>
+              <text x="255" y="45" text-anchor="middle" dy="0.35em" font-family="Inter,sans-serif" font-size="14" font-weight="500" fill="#fff">mRNA</text>
+              <line x1="295" y1="45" x2="375" y2="45" stroke="#1E6B6B" stroke-width="2" marker-end="url(#cd-arr3)"/>
+              <text x="335" y="36" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#1E6B6B">Translation</text>
+              <rect x="380" y="27" width="80" height="36" rx="3" fill="#1a5c5c" stroke="#0d3333" stroke-width="1.5"/>
+              <text x="420" y="45" text-anchor="middle" dy="0.35em" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#fff">Protein</text>
+            </svg>
+            <p class="step-caption">Ribosomes read the mRNA three letters at a time (<span class="term" data-def="A 3-letter RNA 'word' (e.g. AUG) that codes for one amino acid">codons</span>), assembling amino acids into a protein chain. Shape determines function.</p>
+          </div>
+
+          <div class="stepper-controls">
+            <button class="btn-back" aria-label="Previous step">&#8592; Back</button>
+            <button class="btn-next" aria-label="Next step">Next &#8594;</button>
+            <span class="step-counter" aria-live="polite">1 / 3</span>
+          </div>
+        </div>
+        <figcaption>The Central Dogma: information flows DNA → RNA → Protein, one direction only. Use Next/Back to step through each stage.</figcaption>
+      </figure>
+
+      <h2>1.2: The Central Dogma &mdash; DNA to RNA to Protein</h2>
+
+      <p>In 1958, Francis Crick articulated what he called the Central Dogma of molecular biology: information flows from <span class="term" data-def="Deoxyribonucleic acid — the molecule storing genetic information using 4 chemical letters: A, T, G, C">DNA</span> to <span class="term" data-def="Messenger RNA — a temporary copy of a gene, read by ribosomes to build a protein">mRNA</span> to protein. A three-step process. Once you understand it, the logic of mRNA vaccines becomes almost obvious.</p>
+
+      <p>DNA is the master blueprint, locked in a vault (the cell's nucleus) for safekeeping. You never take the master blueprint to the construction site. Instead, you make a copy and send that to the workers. The copy is RNA. The finished product the workers build is protein.</p>
+
+      <p>The first step is called transcription. A molecular machine called RNA polymerase reads a gene on the DNA and produces a copy in a closely related molecule called messenger RNA, or mRNA. The mRNA is a single-stranded, temporary copy of the gene's instructions. This is the same type of molecule used in mRNA vaccines. Injecting mRNA gives cells a copy of instructions for building a specific protein. The cell's own machinery does the rest.</p>
+
+      <p>The mRNA copy is written in three-letter "words" called <span class="term" data-def="A 3-letter RNA 'word' (e.g. AUG) that codes for one amino acid">codons</span>. There are sixty-four possible three-letter combinations using the four RNA letters (A, U, G, and C; RNA uses uracil instead of thymine), and these sixty-four codons map to just twenty different amino acids, plus a few stop signals. The genetic code is redundant: multiple codons can specify the same amino acid. Leucine, for example, has six. This redundancy looks like sloppy engineering, but it is useful. In vaccine design, scientists exploit it through codon optimization, choosing codons that the host's cellular machinery translates most efficiently, without changing the protein produced.</p>
+
+      <p>The second step is translation, happening on molecular machines called ribosomes. Ribosomes read the mRNA three letters at a time, and for each codon, a small adapter molecule called transfer RNA (tRNA) delivers the corresponding amino acid. The amino acids are linked one by one into a chain called a polypeptide. A typical protein is three hundred to five hundred amino acids long. When the ribosome reaches a stop codon, the chain is released and folds into the three-dimensional shape that gives the protein its function.</p>
+
+      <p>The connection to cancer and Rosie's story: if a <span class="term" data-def="A somatic mutation is a DNA change that occurs in a body cell after conception — not inherited, not passed to children">somatic mutation</span> in the DNA changes a gene's code, the mRNA copy carries that change, and the ribosome builds a slightly different protein. Sometimes the difference is harmless. Sometimes it produces a protein that does not fold correctly, does not function properly, or looks foreign to the immune system. That is the molecular basis of cancer, and it is the opening personalized cancer vaccines exploit.</p>
+
+      <!-- Codon Translator Tool -->
+      <div class="tool-box" id="codon-translator">
+        <h3>Try It: Codon Translator</h3>
+        <p class="tool-hint">Type a DNA sequence (any length divisible by 3). Try: <code>ATGAAATTTGAATAA</code></p>
+        <textarea id="dna-input" rows="2" placeholder="ATGAAATTTGAATAA..." aria-label="DNA sequence input"></textarea>
+        <button onclick="translateDNA()" aria-label="Translate DNA sequence">Translate &rarr;</button>
+        <div id="codon-output" class="tool-output" aria-live="polite" aria-label="Translation output"></div>
+      </div>
+
+      <h2>1.3: Cancer &mdash; When the Code Breaks</h2>
+
+      <p>Cancer is a disease of the <span class="term" data-def="The complete set of genetic instructions in an organism — ~3 billion base pairs in humans">genome</span>. It occurs when mutations accumulate in a cell's DNA in a way that overrides normal growth controls. Every cell has two types of safeguard genes: oncogenes, which promote cell growth (the accelerator pedal), and tumor suppressor genes, which restrain it (the brakes). Cancer typically requires mutations in both. An oncogene gets stuck "on," and a tumor suppressor like TP53 (the "guardian of the genome") gets knocked out. The result is a cell that grows relentlessly, ignoring signals to stop.</p>
+
+      <p>Not all mutations in a cancer cell are equal. A typical tumor might harbor hundreds or thousands of mutations, but only a small handful, usually two to eight, actually drive the cancer. These are driver mutations. The rest are passenger mutations, accumulated randomly as the cancer cell divides. The distinction matters for treatment: you want to target the drivers, or at least mutations that produce proteins the immune system can recognize.</p>
+
+      <p>Different cancer types carry different numbers of mutations, a measure called <span class="term" data-def="The number of somatic mutations per megabase of DNA — a measure of how 'mutation-heavy' a cancer is">tumor mutational burden</span>, or TMB. Melanoma tends to have a high burden (ten to fifty mutations per megabase of DNA) because ultraviolet radiation is a potent mutagen. Pancreatic cancer typically has a low burden of one to five per megabase. More mutations generally mean more potential immune targets. Cancers with high TMB tend to respond better to immune-based treatments because they produce more abnormal proteins the immune system can learn to recognize.</p>
+
+      <p>Those abnormal proteins are called <span class="term" data-def="A mutation-derived peptide displayed on a cancer cell's surface, recognisable by the immune system as foreign">neoantigens</span> ("new antigens"), and they are the foundation of personalized cancer vaccines. A <span class="term" data-def="A DNA change that occurs in a body cell after conception — not inherited, not passed to children">somatic mutation</span> changes a gene, which changes a protein, and the cell chops that abnormal protein into fragments and displays them on its surface like a flag. To the immune system, that flag reads: something is wrong in here. A personalized cancer vaccine teaches the immune system to recognize those flags and destroy any cell displaying them. That is what Conyngham set out to do for Rosie: identify the flags her cancer was flying, and train her immune system to attack them.</p>
+
+      <div class="key-takeaways">
+        <h3>Key Takeaways</h3>
+        <ul>
+          <li>DNA is a 4-letter code (A, T, G, C); 3 billion letters per human cell, packed into every nucleus.</li>
+          <li>Information flows one way: DNA → mRNA → Protein — the Central Dogma. mRNA vaccines exploit step one by delivering instructions directly.</li>
+          <li>Cancer is a disease of accumulated DNA mutations that override growth controls (accelerator stuck on, brakes knocked out).</li>
+          <li>Neoantigens are the abnormal protein fragments a cancer cell displays — the targets personalized vaccines are designed to attack.</li>
+        </ul>
+      </div>
+    </article>
+
+    <nav class="bottom-nav" aria-label="Chapter navigation">
+      <a href="foreword.html" class="prev">Foreword</a>
+      <a href="chapter-2.html" class="next">Chapter 2</a>
+    </nav>
+  </main>
+
+  <footer class="container">
+    <p class="disclaimer">This book is intended for educational purposes only and does not constitute medical advice. Always consult qualified healthcare professionals for medical decisions.</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

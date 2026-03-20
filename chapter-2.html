@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="From the $2.7 billion Human Genome Project to the $200 genome: how sequencing technology works and why the cost collapse changed everything.">
+  <title>Chapter 2: Reading the Code &mdash; Understanding Genetics in the Age of AI</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <div id="reading-progress" aria-hidden="true"></div>
+
+  <a href="#content" class="skip-link">Skip to content</a>
+
+  <header class="top-bar">
+    <a href="index.html">Understanding Genetics in the Age of AI</a>
+    <span class="chapter-label">Chapter 2</span>
+  </header>
+
+  <main id="content" class="container">
+    <div class="chapter-header">
+      <span class="chapter-number">Chapter 2</span>
+      <h1 class="chapter-title">Reading the Code &mdash; Genome Sequencing</h1>
+    </div>
+
+    <article class="content">
+      <h2>2.1: The Human Genome Project &mdash; Biology's Moon Shot</h2>
+
+      <p>On June 26, 2000, President Bill Clinton stood at a White House podium and declared, "Today we are learning the language in which God created life." He was announcing the near-completion of the Human Genome Project, the largest collaborative biological research effort in history. Launched in 1990, the project involved scientists across six countries — the US, UK, France, Germany, Japan, and China — working through roughly twenty institutions, took thirteen years, and cost approximately 2.7 billion dollars. Its goal: read every one of the three billion letters in the human <span class="term" data-def="The complete set of genetic instructions in an organism — ~3 billion base pairs in humans">genome</span> and make the data freely available to the world.</p>
+
+      <p>The technology that powered it was Sanger sequencing, developed by Frederick Sanger in 1977. Sanger sequencing is accurate and reliable but slow and expensive. Each run reads about a thousand letters. Sequencing an entire genome this way is like reading a three-billion-word encyclopedia one sentence at a time. The first complete human genome cost hundreds of millions of dollars in direct sequencing costs.</p>
+
+      <p>The cost curve since then has been dramatic. By 2014, sequencing a human genome had dropped to about one thousand dollars. By 2024, companies like Illumina and Element Biosciences were pushing toward two hundred dollars per genome. This decline has been faster than Moore's Law. During certain periods, sequencing costs halved every few months. When sequencing a genome costs less than a pair of running shoes, the question shifts from "Can we read the code?" to "What do we do with the information?"</p>
+
+      <figure class="figure">
+        <svg id="cost-curve" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 250" role="img" aria-labelledby="ch2-title">
+  <title id="ch2-title">Genome sequencing cost 2000–2024, log scale, outpacing Moore's Law. Hover data points for details.</title>
+  <defs>
+    <marker id="ch2-arr" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto">
+      <polygon points="0 0, 6 3, 0 6" fill="#6b6b6b"/>
+    </marker>
+  </defs>
+  <line x1="80" y1="15" x2="80" y2="215" stroke="#6b6b6b" stroke-width="1" marker-end="url(#ch2-arr)"/>
+  <line x1="80" y1="215" x2="540" y2="215" stroke="#6b6b6b" stroke-width="1" marker-end="url(#ch2-arr)"/>
+  <line x1="80" y1="24" x2="532" y2="24" stroke="#e0e0dc" stroke-width="0.75" stroke-dasharray="3,4"/>
+  <text x="74" y="28" text-anchor="end" font-family="Inter,sans-serif" font-size="9.5" fill="#6b6b6b">$1B</text>
+  <line x1="80" y1="80" x2="532" y2="80" stroke="#e0e0dc" stroke-width="0.75" stroke-dasharray="3,4"/>
+  <text x="74" y="84" text-anchor="end" font-family="Inter,sans-serif" font-size="9.5" fill="#6b6b6b">$10M</text>
+  <line x1="80" y1="125" x2="532" y2="125" stroke="#e0e0dc" stroke-width="0.75" stroke-dasharray="3,4"/>
+  <text x="74" y="129" text-anchor="end" font-family="Inter,sans-serif" font-size="9.5" fill="#6b6b6b">$100K</text>
+  <line x1="80" y1="181" x2="532" y2="181" stroke="#e0e0dc" stroke-width="0.75" stroke-dasharray="3,4"/>
+  <text x="74" y="185" text-anchor="end" font-family="Inter,sans-serif" font-size="9.5" fill="#6b6b6b">$1K</text>
+  <!-- Moore's Law reference line -->
+  <polyline points="90,24 520,178" fill="none" stroke="#bbb" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <!-- Sequencing cost line -->
+  <polyline points="90,15 221,83 296,111 352,181 520,211" fill="none" stroke="#1E6B6B" stroke-width="2.5"/>
+  <!-- Interactive data points -->
+  <circle class="cost-point" cx="90" cy="15" r="5.5" fill="#1E6B6B"
+    data-year="2000" data-cost="$2.7 billion" data-context="HGP completion, Sanger sequencing, cost dominated by labour and reagents"/>
+  <circle class="cost-point" cx="221" cy="83" r="5.5" fill="#1E6B6B"
+    data-year="2007" data-cost="~$10 million" data-context="Next-generation sequencing (NGS) arrives. Illumina's Genome Analyzer launches, slashing cost by 100×"/>
+  <circle class="cost-point" cx="296" cy="111" r="5.5" fill="#1E6B6B"
+    data-year="2011" data-cost="~$1 million" data-context="HiSeq 2000 released. Illumina dominates the market; sequencing speed increases dramatically"/>
+  <circle class="cost-point" cx="352" cy="181" r="5.5" fill="#1E6B6B"
+    data-year="2014" data-cost="~$1,000" data-context="The '$1,000 genome' milestone crossed. Illumina's HiSeq X Ten system achieves clinical price point"/>
+  <circle class="cost-point" cx="520" cy="211" r="5.5" fill="#1E6B6B"
+    data-year="2024" data-cost="~$200" data-context="Element Biosciences and Ultima Genomics race toward sub-$100. Rosie's paired tumor-normal sequencing cost $3,000 AUD at UNSW"/>
+  <!-- Labels -->
+  <text x="97" y="13" font-family="Inter,sans-serif" font-size="9" fill="#1E6B6B" font-weight="600">$2.7B</text>
+  <text x="228" y="81" font-family="Inter,sans-serif" font-size="9" fill="#1E6B6B" font-weight="600">$10M</text>
+  <text x="303" y="109" font-family="Inter,sans-serif" font-size="9" fill="#1E6B6B" font-weight="600">$1M</text>
+  <text x="359" y="179" font-family="Inter,sans-serif" font-size="9" fill="#1E6B6B" font-weight="600">$1K</text>
+  <text x="527" y="209" font-family="Inter,sans-serif" font-size="9" fill="#1E6B6B" font-weight="600">$200</text>
+  <text x="90" y="229" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6b6b6b">2000</text>
+  <text x="221" y="229" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6b6b6b">2007</text>
+  <text x="296" y="229" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6b6b6b">2011</text>
+  <text x="352" y="229" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6b6b6b">2014</text>
+  <text x="520" y="229" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6b6b6b">2024</text>
+  <text transform="rotate(-90)" x="-115" y="16" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6b6b6b">Cost per genome (log scale)</text>
+  <!-- Legend -->
+  <line x1="310" y1="48" x2="330" y2="48" stroke="#1E6B6B" stroke-width="2.5"/>
+  <circle cx="320" cy="48" r="3.5" fill="#1E6B6B"/>
+  <text x="334" y="52" font-family="Inter,sans-serif" font-size="10" fill="#1a1a1a">Sequencing cost</text>
+  <line x1="310" y1="62" x2="330" y2="62" stroke="#bbb" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="334" y="66" font-family="Inter,sans-serif" font-size="10" fill="#6b6b6b">Moore&#39;s Law pace</text>
+</svg>
+        <figcaption>Genome sequencing costs have dropped more than 13-million-fold since 2000, outpacing Moore's Law by orders of magnitude. <strong>Hover (or tap) each data point</strong> for context. The $200 genome made Rosie's story financially possible.</figcaption>
+      </figure>
+
+      <script>
+      (function() {
+        document.addEventListener('DOMContentLoaded', function() {
+          var points = document.querySelectorAll('#cost-curve .cost-point');
+          points.forEach(function(pt) {
+            pt.setAttribute('tabindex', '0');
+            pt.setAttribute('role', 'button');
+            pt.setAttribute('aria-label',
+              pt.dataset.year + ': ' + pt.dataset.cost + ' — ' + pt.dataset.context);
+
+            function showCostTooltip(e) {
+              var tooltip = document.getElementById('tooltip');
+              if (!tooltip) return;
+              tooltip.textContent = pt.dataset.year + ' — ' + pt.dataset.cost + ': ' + pt.dataset.context;
+              tooltip.classList.add('visible');
+              var x = (e.clientX || (e.touches && e.touches[0].clientX) || 0);
+              var y = (e.clientY || (e.touches && e.touches[0].clientY) || 0);
+              var tw = tooltip.offsetWidth || 280;
+              var left = x - tw / 2;
+              if (left < 8) left = 8;
+              if (left + tw > window.innerWidth - 8) left = window.innerWidth - tw - 8;
+              tooltip.style.left = left + 'px';
+              tooltip.style.top = (y - tooltip.offsetHeight - 10) + 'px';
+            }
+            pt.addEventListener('mouseenter', showCostTooltip);
+            pt.addEventListener('mousemove', showCostTooltip);
+            pt.addEventListener('mouseleave', function() {
+              var tooltip = document.getElementById('tooltip');
+              if (tooltip) tooltip.classList.remove('visible');
+            });
+            pt.addEventListener('focus', showCostTooltip);
+            pt.addEventListener('blur', function() {
+              var tooltip = document.getElementById('tooltip');
+              if (tooltip) tooltip.classList.remove('visible');
+            });
+          });
+        });
+      })();
+      </script>
+
+      <h2>2.2: How Modern Sequencing Works</h2>
+
+      <p>The technology that replaced Sanger sequencing is called next-generation sequencing, or NGS. The dominant platform, made by Illumina, uses massively parallel sequencing. Instead of reading one stretch of DNA at a time, you shatter the genome into millions of tiny fragments, attach them to a glass surface called a flow cell, and read them all simultaneously using fluorescent cameras. Each fragment is about one hundred and fifty letters long. A computer takes the overlapping fragments and stitches them back together, reconstructing the original sequence. It is like photocopying a book a million times, cutting each copy into random sentences, and using a computer to reconstruct the order by matching overlapping phrases.</p>
+
+      <p>A newer generation, third-generation or long-read sequencing, takes a different approach. Pacific Biosciences (PacBio) can read individual DNA molecules ten thousand to one hundred thousand letters long in a single pass. Oxford Nanopore Technologies' MinION, roughly the size of a USB stick, reads DNA by threading it through a molecular pore and measuring electrical current changes. Long-read sequencing is particularly valuable for resolving complex genomic regions that short reads cannot untangle, like repetitive sequences or structural rearrangements common in cancer.</p>
+
+      <p>The horizon is a genome for under one hundred dollars, and companies like Element Biosciences are racing to get there. When a complete genome costs less than a pair of running shoes, routine genomic profiling at birth becomes feasible. Pharmacogenomics, tailoring drug prescriptions to your genetic makeup, becomes standard. For cancer patients, sequencing a tumor to identify its specific mutations becomes a baseline expectation, not a luxury.</p>
+
+      <h2>2.3: What Rosie's Sequencing Revealed</h2>
+
+      <p>When Conyngham brought Rosie's case to UNSW researchers, the first step was conceptually straightforward but technically demanding: sequence both the tumor and normal tissue, then compare. This paired tumor-normal sequencing is standard in cancer genomics. The cost was three thousand dollars at the UNSW Ramaciotti Centre for Genomics, unthinkable a decade ago, and likely a fraction of that within a few more years.</p>
+
+      <p>The raw data from sequencing is a massive text file in <span class="term" data-def="The standard file format for raw sequencing reads — contains the DNA sequence + a quality score for every base">FASTQ</span> format, containing billions of short DNA reads along with quality scores for each letter. The next step is computational: align those reads to a reference genome (the dog genome, in this case), then compare tumor reads to normal reads. This process, variant calling, uses tools like GATK's Mutect2 and Strelka. These algorithms distinguish real <span class="term" data-def="A DNA change that occurs in a body cell after conception — not inherited, not passed to children">somatic mutations</span>, changes in cancer cells only, from sequencing errors, germline variants, and noise. The output is a <span class="term" data-def="Variant Call Format — a text file listing every detected genetic variant with its chromosomal position and quality metrics">VCF</span> file: the genetic fingerprint of Rosie's cancer.</p>
+
+      <p>But a mutation list is just the start. Rosie's tumor had thousands of mutations, and the question was: which produce proteins the immune system can recognize and attack? Not all mutations yield <span class="term" data-def="A mutation-derived peptide displayed on a cancer cell's surface, recognisable by the immune system as foreign">neoantigens</span>. The mutated protein has to be expressed, chopped into the right-sized fragments, and displayed on the cell surface where T-cells can see it. Finding those needles in the haystack requires a computational pipeline drawing on protein structure prediction, immune binding algorithms, and careful ranking. AI became not just helpful but essential.</p>
+
+      <div class="key-takeaways">
+        <h3>Key Takeaways</h3>
+        <ul>
+          <li>The Human Genome Project cost $2.7 billion in 2000; sequencing now costs under $200 — a 13-million-fold price drop in 25 years.</li>
+          <li>NGS works by shattering DNA into millions of fragments, reading them all in parallel, then reassembling them computationally.</li>
+          <li>Paired tumor-normal sequencing compares cancer DNA to healthy DNA to identify somatic mutations unique to the tumor.</li>
+          <li>The output is a <span class="term" data-def="Variant Call Format — a text file listing every detected genetic variant with its chromosomal position and quality metrics">VCF</span> file — the starting material for all neoantigen prediction and vaccine design steps.</li>
+        </ul>
+      </div>
+    </article>
+
+    <nav class="bottom-nav" aria-label="Chapter navigation">
+      <a href="chapter-1.html" class="prev">Chapter 1</a>
+      <a href="chapter-3.html" class="next">Chapter 3</a>
+    </nav>
+  </main>
+
+  <footer class="container">
+    <p class="disclaimer">This book is intended for educational purposes only and does not constitute medical advice. Always consult qualified healthcare professionals for medical decisions.</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

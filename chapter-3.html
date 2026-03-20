@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="How proteins fold from amino acid sequences into functional 3D machines, why the folding problem stumped science for 50 years, and what Anfinsen proved in 1961.">
+  <title>Chapter 3: Proteins &mdash; Understanding Genetics in the Age of AI</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <div id="reading-progress" aria-hidden="true"></div>
+
+  <a href="#content" class="skip-link">Skip to content</a>
+
+  <header class="top-bar">
+    <a href="index.html">Understanding Genetics in the Age of AI</a>
+    <span class="chapter-label">Chapter 3</span>
+  </header>
+
+  <main id="content" class="container">
+    <div class="chapter-header">
+      <span class="chapter-number">Chapter 3</span>
+      <h1 class="chapter-title">Proteins, the Machines That Run Your Body</h1>
+    </div>
+
+    <article class="content">
+      <h2>3.1: What Proteins Actually Do</h2>
+
+      <p>If DNA is the instruction manual and RNA is the messenger, proteins are the workers that build and run the factory. Almost everything your body does (digesting food, fighting infections, sending nerve signals, carrying oxygen, contracting muscles) is done by proteins. Enzymes catalyze chemical reactions. Hemoglobin carries oxygen. Antibodies neutralize invaders. Receptors on cell surfaces detect signals from other cells. Your body produces more than twenty thousand different types, and their diversity of function is vast.</p>
+
+      <p>All proteins are built from the same set of twenty amino acids, strung together in a specific order determined by the encoding gene. Each amino acid has a different chemical personality. Some are hydrophilic: they love water and sit on the protein's exterior. Others are hydrophobic: they avoid water and bury themselves in the interior. Some carry positive charges, others negative. A typical protein is a chain of three hundred to five hundred amino acids, and the specific sequence is determined entirely by the gene. Change the gene, change the sequence. Change the sequence, change the protein.</p>
+
+      <p>But a protein's function depends not just on its amino acid sequence but on the three-dimensional shape the chain folds into. A chain of amino acids does not stay a floppy string. It twists and collapses into a precise, compact structure (helices, flat sheets, loops) driven by the physics and chemistry of how amino acids interact with each other and with water. The shape determines what the protein binds to, what reactions it catalyzes, how other molecules interact with it. This took scientists decades to fully appreciate.</p>
+
+      <figure class="figure">
+        <div class="stepper" tabindex="0" aria-label="Protein folding step-through diagram">
+
+          <!-- Step 1: Linear chain -->
+          <div class="step active" aria-label="Step 1 of 3: Linear amino acid chain">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 130" role="img" aria-label="Linear chain of 12 amino acid circles">
+              <!-- Backbone lines -->
+              <line x1="60" y1="65" x2="95" y2="65" stroke="#aaa" stroke-width="1.5"/>
+              <line x1="95" y1="65" x2="130" y2="65" stroke="#aaa" stroke-width="1.5"/>
+              <line x1="130" y1="65" x2="165" y2="65" stroke="#aaa" stroke-width="1.5"/>
+              <line x1="165" y1="65" x2="200" y2="65" stroke="#aaa" stroke-width="1.5"/>
+              <line x1="200" y1="65" x2="235" y2="65" stroke="#aaa" stroke-width="1.5"/>
+              <line x1="235" y1="65" x2="270" y2="65" stroke="#aaa" stroke-width="1.5"/>
+              <line x1="270" y1="65" x2="305" y2="65" stroke="#aaa" stroke-width="1.5"/>
+              <line x1="305" y1="65" x2="340" y2="65" stroke="#aaa" stroke-width="1.5"/>
+              <line x1="340" y1="65" x2="375" y2="65" stroke="#aaa" stroke-width="1.5"/>
+              <line x1="375" y1="65" x2="410" y2="65" stroke="#aaa" stroke-width="1.5"/>
+              <line x1="410" y1="65" x2="445" y2="65" stroke="#aaa" stroke-width="1.5"/>
+              <!-- Hydrophobic (gray) -->
+              <circle cx="95"  cy="65" r="12" fill="#d1d1d1" stroke="#999" stroke-width="1.5"/>
+              <circle cx="165" cy="65" r="12" fill="#d1d1d1" stroke="#999" stroke-width="1.5"/>
+              <circle cx="235" cy="65" r="12" fill="#d1d1d1" stroke="#999" stroke-width="1.5"/>
+              <circle cx="305" cy="65" r="12" fill="#d1d1d1" stroke="#999" stroke-width="1.5"/>
+              <circle cx="375" cy="65" r="12" fill="#d1d1d1" stroke="#999" stroke-width="1.5"/>
+              <circle cx="445" cy="65" r="12" fill="#d1d1d1" stroke="#999" stroke-width="1.5"/>
+              <!-- Hydrophilic (teal) -->
+              <circle cx="60"  cy="65" r="12" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+              <circle cx="130" cy="65" r="12" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+              <circle cx="200" cy="65" r="12" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+              <circle cx="270" cy="65" r="12" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+              <circle cx="340" cy="65" r="12" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+              <circle cx="410" cy="65" r="12" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+              <!-- Legend -->
+              <circle cx="30"  cy="108" r="7" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+              <text x="42" cy="112" y="112" font-family="Inter,sans-serif" font-size="11" fill="#6b6b6b">Hydrophilic (water-loving)</text>
+              <circle cx="220" cy="108" r="7" fill="#d1d1d1" stroke="#999" stroke-width="1"/>
+              <text x="232" y="112" font-family="Inter,sans-serif" font-size="11" fill="#6b6b6b">Hydrophobic (water-fearing)</text>
+            </svg>
+            <p class="step-caption">A newly synthesised chain of 12 amino acids — the raw output of the ribosome. Teal = hydrophilic (water-loving); gray = hydrophobic (water-fearing). At this stage the chain is floppy and non-functional.</p>
+          </div>
+
+          <!-- Step 2: Folding begins -->
+          <div class="step" aria-label="Step 2 of 3: Hydrophobic collapse begins">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 160" role="img" aria-label="Chain begins to curve as hydrophobic residues cluster">
+              <!-- Curved backbone -->
+              <path d="M60,100 C100,100 120,55 165,52 C210,49 230,105 275,85 C320,65 340,45 385,65 C430,85 445,105 490,100" fill="none" stroke="#aaa" stroke-width="1.5"/>
+              <!-- Hydrophilic (teal) — on outside -->
+              <circle cx="60"  cy="100" r="12" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+              <circle cx="130" cy="70"  r="12" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+              <circle cx="215" cy="100" r="12" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+              <circle cx="270" cy="78"  r="12" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+              <circle cx="360" cy="55"  r="12" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+              <circle cx="490" cy="100" r="12" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+              <!-- Hydrophobic (gray) — migrating toward center -->
+              <circle cx="95"  cy="78"  r="12" fill="#d1d1d1" stroke="#999" stroke-width="1.5"/>
+              <circle cx="168" cy="55"  r="12" fill="#d1d1d1" stroke="#999" stroke-width="1.5"/>
+              <circle cx="235" cy="82"  r="12" fill="#d1d1d1" stroke="#999" stroke-width="1.5"/>
+              <circle cx="310" cy="65"  r="12" fill="#d1d1d1" stroke="#999" stroke-width="1.5"/>
+              <circle cx="395" cy="78"  r="12" fill="#d1d1d1" stroke="#999" stroke-width="1.5"/>
+              <circle cx="445" cy="98"  r="12" fill="#d1d1d1" stroke="#999" stroke-width="1.5"/>
+              <!-- Arrow indicating motion -->
+              <text x="270" y="148" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#1E6B6B">↕ hydrophobic residues avoiding water, beginning to cluster</text>
+            </svg>
+            <p class="step-caption">Hydrophobic residues avoid the surrounding water and begin migrating toward each other. The chain starts to curve and collapse. This is driven purely by thermodynamics — no energy input required.</p>
+          </div>
+
+          <!-- Step 3: Folded protein -->
+          <div class="step" aria-label="Step 3 of 3: Folded protein with labeled core and surface">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 175" role="img" aria-label="Compact folded protein with hydrophobic core and hydrophilic surface">
+              <!-- Protein blob -->
+              <ellipse cx="290" cy="82" rx="110" ry="72" fill="#f0f9f9" stroke="#1E6B6B" stroke-width="1.5"/>
+              <!-- Core label -->
+              <text x="290" y="78" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#6b6b6b">Core</text>
+              <!-- Hydrophobic (gray) — in center -->
+              <circle cx="270" cy="72" r="13" fill="#d1d1d1" stroke="#999" stroke-width="1"/>
+              <circle cx="300" cy="90" r="13" fill="#d1d1d1" stroke="#999" stroke-width="1"/>
+              <circle cx="285" cy="55" r="13" fill="#d1d1d1" stroke="#999" stroke-width="1"/>
+              <!-- Hydrophilic (teal) — on surface -->
+              <circle cx="185" cy="78" r="12" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+              <circle cx="200" cy="115" r="12" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+              <circle cx="395" cy="78" r="12" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+              <circle cx="378" cy="115" r="12" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+              <circle cx="290" cy="15"  r="12" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+              <circle cx="250" cy="148" r="12" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+              <!-- Surface label -->
+              <text x="140" y="82" text-anchor="end" font-family="Inter,sans-serif" font-size="11" fill="#1E6B6B">Surface</text>
+              <line x1="142" y1="78" x2="170" y2="78" stroke="#1E6B6B" stroke-width="1" stroke-dasharray="2,2"/>
+              <!-- Legend -->
+              <circle cx="80"  cy="162" r="7" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+              <text x="92" y="166" font-family="Inter,sans-serif" font-size="10" fill="#6b6b6b">Hydrophilic (surface-facing)</text>
+              <circle cx="290" cy="162" r="7" fill="#d1d1d1" stroke="#999" stroke-width="1"/>
+              <text x="302" y="166" font-family="Inter,sans-serif" font-size="10" fill="#6b6b6b">Hydrophobic (buried in core)</text>
+            </svg>
+            <p class="step-caption">The folded protein: hydrophobic core buried away from water, hydrophilic surface facing the cell's watery interior. <strong>Shape = function</strong>. A single amino acid change from a cancer mutation can alter this shape — creating a neoantigen the immune system can recognise.</p>
+          </div>
+
+          <div class="stepper-controls">
+            <button class="btn-back" aria-label="Previous step">&#8592; Back</button>
+            <button class="btn-next" aria-label="Next step">Next &#8594;</button>
+            <span class="step-counter" aria-live="polite">1 / 3</span>
+          </div>
+        </div>
+        <figcaption>Protein folding in three stages. Use Next/Back to step through. The final compact shape is determined entirely by the amino acid sequence — which is determined by the gene.</figcaption>
+      </figure>
+
+      <!-- original static SVG kept below, hidden, for accessibility fallback -->
+      <figure class="figure" style="display:none" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 175" role="img" aria-labelledby="ch3-title">
+  <title id="ch3-title">Protein folding stages: linear chain, secondary structure, folded protein</title>
+  <defs>
+    <marker id="ch3-arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#1E6B6B"/>
+    </marker>
+  </defs>
+  <!-- Dividers -->
+  <line x1="192" y1="8" x2="192" y2="148" stroke="#e0e0dc" stroke-width="1"/>
+  <line x1="387" y1="8" x2="387" y2="148" stroke="#e0e0dc" stroke-width="1"/>
+  <!-- ── Panel 1: Linear chain ── -->
+  <line x1="22" y1="80" x2="47" y2="62" stroke="#aaa" stroke-width="1.5"/>
+  <line x1="47" y1="62" x2="72" y2="80" stroke="#aaa" stroke-width="1.5"/>
+  <line x1="72" y1="80" x2="97" y2="62" stroke="#aaa" stroke-width="1.5"/>
+  <line x1="97" y1="62" x2="122" y2="80" stroke="#aaa" stroke-width="1.5"/>
+  <line x1="122" y1="80" x2="147" y2="62" stroke="#aaa" stroke-width="1.5"/>
+  <line x1="147" y1="62" x2="172" y2="80" stroke="#aaa" stroke-width="1.5"/>
+  <circle cx="22" cy="80" r="11" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+  <circle cx="47" cy="62" r="11" fill="#d1d1d1" stroke="#999" stroke-width="1.5"/>
+  <circle cx="72" cy="80" r="11" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+  <circle cx="97" cy="62" r="11" fill="#d1d1d1" stroke="#999" stroke-width="1.5"/>
+  <circle cx="122" cy="80" r="11" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+  <circle cx="147" cy="62" r="11" fill="#d1d1d1" stroke="#999" stroke-width="1.5"/>
+  <circle cx="172" cy="80" r="11" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+  <text x="97" y="118" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#1a1a1a">Linear chain</text>
+  <text x="97" y="133" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#6b6b6b">Amino acid sequence</text>
+  <!-- Arrow 1 -->
+  <line x1="200" y1="71" x2="215" y2="71" stroke="#1E6B6B" stroke-width="1.5" marker-end="url(#ch3-arr)"/>
+  <!-- ── Panel 2: Secondary structure (coiling) ── -->
+  <line x1="225" y1="95" x2="248" y2="58" stroke="#aaa" stroke-width="1.5"/>
+  <line x1="248" y1="58" x2="278" y2="50" stroke="#aaa" stroke-width="1.5"/>
+  <line x1="278" y1="50" x2="308" y2="58" stroke="#aaa" stroke-width="1.5"/>
+  <line x1="308" y1="58" x2="330" y2="95" stroke="#aaa" stroke-width="1.5"/>
+  <line x1="330" y1="95" x2="350" y2="75" stroke="#aaa" stroke-width="1.5"/>
+  <line x1="350" y1="75" x2="370" y2="95" stroke="#aaa" stroke-width="1.5"/>
+  <circle cx="225" cy="95" r="11" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+  <circle cx="248" cy="58" r="11" fill="#d1d1d1" stroke="#999" stroke-width="1.5"/>
+  <circle cx="278" cy="50" r="11" fill="#d1d1d1" stroke="#999" stroke-width="1.5"/>
+  <circle cx="308" cy="58" r="11" fill="#d1d1d1" stroke="#999" stroke-width="1.5"/>
+  <circle cx="330" cy="95" r="11" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+  <circle cx="350" cy="75" r="11" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+  <circle cx="370" cy="95" r="11" fill="#d1d1d1" stroke="#999" stroke-width="1.5"/>
+  <text x="297" y="118" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#1a1a1a">Secondary structure</text>
+  <text x="297" y="133" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#6b6b6b">Helices &amp; sheets forming</text>
+  <!-- Arrow 2 -->
+  <line x1="395" y1="71" x2="410" y2="71" stroke="#1E6B6B" stroke-width="1.5" marker-end="url(#ch3-arr)"/>
+  <!-- ── Panel 3: Folded protein ── -->
+  <ellipse cx="492" cy="72" rx="72" ry="55" fill="#f0f9f9" stroke="#1E6B6B" stroke-width="1.5"/>
+  <!-- Buried hydrophobic (gray) -->
+  <circle cx="478" cy="68" r="11" fill="#d1d1d1" stroke="#999" stroke-width="1"/>
+  <circle cx="505" cy="78" r="11" fill="#d1d1d1" stroke="#999" stroke-width="1"/>
+  <circle cx="490" cy="52" r="11" fill="#d1d1d1" stroke="#999" stroke-width="1"/>
+  <!-- Surface hydrophilic (teal) -->
+  <circle cx="424" cy="67" r="11" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+  <circle cx="437" cy="98" r="11" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+  <circle cx="560" cy="67" r="11" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+  <circle cx="547" cy="98" r="11" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+  <circle cx="492" cy="20" r="11" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+  <text x="492" y="148" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#1a1a1a">Folded protein</text>
+  <text x="492" y="163" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#6b6b6b">Hydrophilic outside, hydrophobic inside</text>
+  <!-- Legend (bottom left) -->
+  <circle cx="15" cy="155" r="7" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+  <text x="26" y="159" font-family="Inter,sans-serif" font-size="9.5" fill="#6b6b6b">Hydrophilic (water-loving)</text>
+  <circle cx="155" cy="155" r="7" fill="#d1d1d1" stroke="#999" stroke-width="1"/>
+  <text x="166" y="159" font-family="Inter,sans-serif" font-size="9.5" fill="#6b6b6b">Hydrophobic (water-avoiding)</text>
+</svg>
+        <figcaption>A protein’s amino acid sequence determines its 3D shape. Hydrophobic residues bury themselves inside; hydrophilic ones face outward.</figcaption>
+      </figure>
+
+      <h2>3.2: The Protein Folding Problem</h2>
+
+      <p>In 1969, a molecular biologist named Cyrus Levinthal posed a paradox that would haunt the field for fifty years. Consider a modest protein of just one hundred amino acids. Each amino acid can adopt multiple orientations relative to its neighbors. If you enumerated every possible three-dimensional configuration, the number would be on the order of ten to the power of three hundred. If the protein tried each one at a rate of trillions per second, it would take longer than the age of the universe to find the right shape. Yet real proteins fold correctly in milliseconds to seconds. They are not searching randomly.</p>
+
+      <p>The resolution: protein folding is guided by an energy landscape. The protein does not try every shape. Local structures form first (a helix here, a sheet there), and the chain progressively collapses toward its lowest-energy, most stable configuration. Specialized helper proteins called chaperones prevent misfolding. The principle that sequence determines structure was demonstrated experimentally by Christian Anfinsen in 1961 when he showed a denatured protein could spontaneously refold into its correct shape. He won the Nobel Prize in 1972.</p>
+
+      <p>For Conyngham's project, this matters directly. A cancer mutation that changes a single amino acid can alter a protein's three-dimensional shape. The altered shape means the cell's surface displays a different molecular fragment, a <span class="term" data-def="A mutation-derived peptide displayed on a cancer cell's surface, recognisable by the immune system as foreign">neoantigen</span>, and the immune system may recognize it as foreign. To design a vaccine targeting that neoantigen, you need to know what the mutated protein looks like in three dimensions: which parts are exposed, which buried, how the mutated region interacts with immune detection machinery. For decades, the only way was laborious experimentation. Then AlphaFold arrived.</p>
+
+      <h2>3.3: Why We Couldn't Predict Shapes Until Now</h2>
+
+      <p>Before <span class="term" data-def="DeepMind's AI system that predicts protein 3D structure from amino acid sequence — solved a 50-year problem in structural biology">AlphaFold</span>, determining a protein's three-dimensional structure required experimental techniques that are slow, expensive, and technically demanding. X-ray crystallography, the gold standard, requires growing a crystal of purified protein, bombarding it with X-rays, and interpreting the diffraction pattern. Not all proteins crystallize easily, and the process can take months or years. Cryo-electron microscopy (cryo-EM) requires equipment costing millions. Over more than fifty years, the Protein Data Bank (PDB) has accumulated roughly two hundred thousand experimentally determined structures. An extraordinary achievement, but less than a tenth of one percent of all known protein sequences.</p>
+
+      <p>In 1994, computational biologist John Moult launched CASP, the Critical Assessment of protein Structure Prediction, to evaluate how well computers could predict protein shapes from sequences alone. Teams would receive sequences, submit predictions, and be scored against experimental structures that had been solved but not published. For twenty-five years, progress was incremental. The best methods scored in the forties and fifties on a scale called <span class="term" data-def="AlphaFold's per-residue confidence score (0–100). >90 = highly reliable; <50 = likely disordered">pLDDT</span>, where one hundred is a perfect prediction and anything above ninety is considered equivalent to experimental accuracy. Then, in 2020, the curve broke.</p>
+
+      <div class="key-takeaways">
+        <h3>Key Takeaways</h3>
+        <ul>
+          <li>Proteins are built from 20 amino acids; their 3D shape — determined by sequence — is what gives them their function.</li>
+          <li>Hydrophobic residues bury themselves in the protein core; hydrophilic residues face the watery cell interior.</li>
+          <li>A single amino acid change from a cancer mutation can alter protein shape and create a neoantigen the immune system can target.</li>
+          <li>For 50 years, predicting protein shape from sequence alone was unsolved — until AlphaFold.</li>
+        </ul>
+      </div>
+    </article>
+
+    <nav class="bottom-nav" aria-label="Chapter navigation">
+      <a href="chapter-2.html" class="prev">Chapter 2</a>
+      <a href="chapter-4.html" class="next">Chapter 4</a>
+    </nav>
+  </main>
+
+  <footer class="container">
+    <p class="disclaimer">This book is intended for educational purposes only and does not constitute medical advice. Always consult qualified healthcare professionals for medical decisions.</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The immune system's two layers, MHC antigen display, neoantigens, checkpoint inhibitors, and why personalized cancer vaccines can teach T-cells to kill tumors.">
+  <title>Chapter 5: Your Immune System &mdash; Understanding Genetics in the Age of AI</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <div id="reading-progress" aria-hidden="true"></div>
+
+  <a href="#content" class="skip-link">Skip to content</a>
+
+  <header class="top-bar">
+    <a href="index.html">Understanding Genetics in the Age of AI</a>
+    <span class="chapter-label">Chapter 5</span>
+  </header>
+
+  <main id="content" class="container">
+    <div class="chapter-header">
+      <span class="chapter-number">Chapter 5</span>
+      <h1 class="chapter-title">Your Immune System, the Body's Security Team</h1>
+    </div>
+
+    <article class="content">
+      <h2>5.1: Two Layers of Defense</h2>
+
+      <p>Your immune system operates in two layers, and understanding both is essential to understanding how cancer vaccines work.</p>
+
+      <p>The first layer is innate immunity, the rapid-response team that deploys immediately but does not distinguish one threat from another. Your skin is the most obvious innate defense: a physical barrier. Mucus traps invaders in your airways. Stomach acid destroys swallowed microbes. When something breaches these barriers, innate immune cells like neutrophils, macrophages, and natural killer (NK) cells arrive within minutes to hours, engulfing or destroying anything suspicious. The innate system is fast and effective but does not learn and does not remember.</p>
+
+      <p>The second layer is adaptive immunity, and it is what makes vaccines possible. The adaptive immune system is slower (days to weeks for a full response on first encounter) but specific and possessing memory. Its two main players are B-cells and T-cells, both white blood cells produced in bone marrow.</p>
+
+      <p>B-cells produce antibodies, Y-shaped proteins that circulate in blood and bind to specific molecular shapes on invader surfaces, marking them for destruction. T-cells come in two varieties relevant here. CD4+ helper T-cells coordinate the immune response, activating other immune cells and directing the attack. CD8+ killer T-cells (cytotoxic T-cells) identify and kill infected or cancerous cells. Each individual T-cell recognizes one specific molecular pattern, but your body maintains billions of them, collectively covering virtually every possible molecular threat. When a T-cell encounters its match, it activates, proliferates, and forms memory cells that respond faster if the same threat reappears. This is immunological memory, and it is the entire basis of vaccination.</p>
+
+      <h2>5.2: The MHC System &mdash; How Cells Show Their ID</h2>
+
+      <p>Every nucleated cell in your body participates in a continuous display system that functions as internal surveillance. Cells constantly chop up the proteins they produce into short fragments (peptides, typically eight to eleven amino acids long) and display them on their surface using the Major Histocompatibility Complex (MHC), also known in humans as Human Leukocyte Antigen (HLA). MHC Class I molecules, present on virtually every cell, serve as an identity display: here is a sample of what I am currently producing.</p>
+
+      <p>When a cell is healthy, the displayed fragments are normal cellular proteins. T-cells patrol past, inspect, recognize it as "self," and move on. When a cell is infected or when a cancer mutation causes abnormal protein production, the displayed fragments include abnormal peptides, neoantigens. A CD8+ killer T-cell whose receptor matches that neoantigen recognizes it, binds, and triggers a kill signal. The cell is destroyed.</p>
+
+      <figure class="figure">
+        <p style="font-family:var(--sans);font-size:0.8rem;color:var(--text-muted);margin-bottom:0.5rem;text-align:center">Click the cancer cell panel to activate the T-cell kill signal &rarr;</p>
+        <svg id="mhc-interactive" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 205" role="img" aria-labelledby="ch5-title">
+  <title id="ch5-title">MHC antigen display: healthy cell vs cancer cell with neoantigen and T-cell kill signal. Click the cancer cell panel to see the immune response.</title>
+  <!-- Divider -->
+  <line x1="290" y1="8" x2="290" y2="195" stroke="#e0e0dc" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <text x="290" y="195" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#6b6b6b">vs.</text>
+  <!-- ── Left panel: Healthy cell ── -->
+  <text x="100" y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#6b6b6b">Healthy Cell</text>
+  <!-- Cell arc -->
+  <path d="M20,100 Q20,160 100,170 Q180,160 180,100" fill="#f5f5f5" stroke="#ccc" stroke-width="1.5"/>
+  <!-- MHC molecule (Y-shape, gray) -->
+  <line x1="100" y1="100" x2="100" y2="130" stroke="#999" stroke-width="3"/>
+  <line x1="82" y1="100" x2="100" y2="115" stroke="#999" stroke-width="3"/>
+  <line x1="118" y1="100" x2="100" y2="115" stroke="#999" stroke-width="3"/>
+  <!-- Normal peptide (gray rectangle) -->
+  <rect x="86" y="90" width="28" height="10" rx="2" fill="#ccc" stroke="#999" stroke-width="1"/>
+  <text x="100" y="83" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#999">Normal peptide</text>
+  <!-- MHC label -->
+  <text x="130" y="120" font-family="Inter,sans-serif" font-size="9" fill="#999">MHC I</text>
+  <!-- T-cell passing by -->
+  <ellipse cx="195" cy="60" rx="22" ry="16" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+  <text x="195" y="64" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#1E6B6B">T-cell</text>
+  <!-- Arrow: T-cell passing (curved arrow going right) -->
+  <path d="M210,55 Q235,40 245,55" fill="none" stroke="#1E6B6B" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#ch5-pass)"/>
+  <text x="245" y="42" font-family="Inter,sans-serif" font-size="9" fill="#6b6b6b">passes by</text>
+  <defs>
+    <marker id="ch5-pass" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto">
+      <polygon points="0 0, 6 3, 0 6" fill="#1E6B6B"/>
+    </marker>
+    <marker id="ch5-kill" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto">
+      <polygon points="0 0, 6 3, 0 6" fill="#E53935"/>
+    </marker>
+  </defs>
+  <!-- ── Right panel: Cancer cell (interactive) ── -->
+  <g id="cancer-panel" cursor="pointer">
+    <text x="435" y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#6b6b6b">Cancer Cell</text>
+    <text x="435" y="34" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#1E6B6B" font-style="italic">click to activate</text>
+    <!-- Cell arc -->
+    <path id="cancer-cell-body" d="M310,100 Q310,160 435,170 Q560,160 560,100" fill="#fff3e0" stroke="#ff9800" stroke-width="1.5"/>
+    <!-- MHC molecule (Y-shape, teal) -->
+    <line x1="435" y1="100" x2="435" y2="130" stroke="#1E6B6B" stroke-width="3"/>
+    <line x1="417" y1="100" x2="435" y2="115" stroke="#1E6B6B" stroke-width="3"/>
+    <line x1="453" y1="100" x2="435" y2="115" stroke="#1E6B6B" stroke-width="3"/>
+    <!-- Neoantigen (red rectangle) -->
+    <rect x="421" y="90" width="28" height="10" rx="2" fill="#E53935" stroke="#b71c1c" stroke-width="1"/>
+    <text x="435" y="83" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#b71c1c" font-weight="600">Neoantigen</text>
+    <!-- MHC label -->
+    <text x="465" y="120" font-family="Inter,sans-serif" font-size="9" fill="#1E6B6B">MHC I</text>
+    <!-- T-cell (will animate downward on activation) -->
+    <g class="tcell-killer">
+      <ellipse cx="435" cy="50" rx="22" ry="16" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="1.5"/>
+      <text x="435" y="47" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#1E6B6B">CD8+</text>
+      <text x="435" y="57" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#1E6B6B">T-cell</text>
+    </g>
+    <!-- Kill arrow (pulses red on activation) -->
+    <line class="kill-arrow" x1="435" y1="66" x2="435" y2="82" stroke="#E53935" stroke-width="2" marker-end="url(#ch5-kill)"/>
+    <!-- Lightning bolt (grows on activation) -->
+    <g class="kill-bolt">
+      <text x="447" y="78" font-family="Inter,sans-serif" font-size="14" fill="#E53935">&#9889;</text>
+      <text x="455" y="74" font-family="Inter,sans-serif" font-size="9" fill="#E53935" font-weight="600">Kill signal</text>
+    </g>
+  </g>
+</svg>
+        <figcaption>Every cell displays protein fragments on MHC molecules — a continuous internal surveillance feed. Cancer’s mutations produce fragments the immune system doesn’t recognize as ‘self,’ triggering a kill response.</figcaption>
+      </figure>
+
+      <p>This is why <span class="term" data-def="A mutation-derived peptide displayed on a cancer cell's surface, recognisable by the immune system as foreign">neoantigens</span> are the key to personalized cancer vaccines, and why binding prediction matters so much. For a neoantigen to be recognized, it must bind tightly enough to the patient's specific <span class="term" data-def="Major Histocompatibility Complex — proteins on cell surfaces that display peptide fragments for immune surveillance">MHC</span> molecules to be displayed. NetMHCpan predicts how strongly any given peptide binds to any given MHC molecule. The standard threshold is an affinity below five hundred nanomolar. Peptides predicted to bind more tightly are considered potential neoantigens. This computational prediction replaced what would otherwise require expensive and time-consuming laboratory binding assays.</p>
+
+      <h2>5.3: Why Cancer Gets Away With It</h2>
+
+      <p>If the immune system is good at detecting abnormal cells, why does cancer ever succeed? Cancer cells evolve under selective pressure from the immune system and develop strategies for evasion. One of the most important is the PD-1/PD-L1 checkpoint pathway. Many cancer cells produce PD-L1 on their surface. When PD-L1 on a cancer cell binds to PD-1 on a T-cell, it sends a "stand down" signal. The T-cell deactivates and leaves the cancer cell alone. The cancer cell is showing a fake credential, and the T-cell backs off.</p>
+
+      <p>This discovery led to checkpoint inhibitors, drugs like pembrolizumab (Keytruda) and nivolumab (Opdivo), antibodies that block the PD-1/PD-L1 interaction, removing the fake credential and letting T-cells attack. In metastatic melanoma, checkpoint inhibitors produce durable responses in thirty to fifty percent of patients, a cancer that was previously untreatable once it spread. The frontier is combining checkpoint inhibitors with personalized cancer vaccines: the vaccine teaches the immune system what to look for, the checkpoint inhibitor removes the cancer's ability to hide. This combination is in clinical trials, and the early results are strong.</p>
+
+      <div class="key-takeaways">
+        <h3>Key Takeaways</h3>
+        <ul>
+          <li>The adaptive immune system is specific and has memory — the basis of all vaccination.</li>
+          <li>Every cell displays protein fragments on <span class="term" data-def="Major Histocompatibility Complex — proteins on cell surfaces that display peptide fragments for immune surveillance">MHC</span> molecules — an internal surveillance feed. Mutations produce abnormal fragments (neoantigens) that T-cells can recognise.</li>
+          <li>CD8+ killer T-cells destroy cells displaying unfamiliar peptides — the mechanism personalized vaccines exploit.</li>
+          <li>Cancer evades this by displaying PD-L1, a "stand down" signal. Checkpoint inhibitors remove this evasion mechanism.</li>
+        </ul>
+      </div>
+    </article>
+
+    <nav class="bottom-nav" aria-label="Chapter navigation">
+      <a href="chapter-4.html" class="prev">Chapter 4</a>
+      <a href="chapter-6.html" class="next">Chapter 6</a>
+    </nav>
+  </main>
+
+  <footer class="container">
+    <p class="disclaimer">This book is intended for educational purposes only and does not constitute medical advice. Always consult qualified healthcare professionals for medical decisions.</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

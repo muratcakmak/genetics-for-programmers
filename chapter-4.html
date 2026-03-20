@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="How DeepMind's AlphaFold solved protein structure prediction at CASP14, what the Evoformer architecture does, and how AlphaFold 3 extends to drug-molecule interactions.">
+  <title>Chapter 4: AlphaFold &mdash; Understanding Genetics in the Age of AI</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <div id="reading-progress" aria-hidden="true"></div>
+
+  <a href="#content" class="skip-link">Skip to content</a>
+
+  <header class="top-bar">
+    <a href="index.html">Understanding Genetics in the Age of AI</a>
+    <span class="chapter-label">Chapter 4</span>
+  </header>
+
+  <main id="content" class="container">
+    <div class="chapter-header">
+      <span class="chapter-number">Chapter 4</span>
+      <h1 class="chapter-title">AlphaFold &mdash; AI Cracks Biology's 50-Year Problem</h1>
+    </div>
+
+    <article class="content">
+      <h2>4.1: CASP and the Grand Challenge</h2>
+
+      <p>CASP has been held biennially since 1994, and for structural biologists, it is the definitive benchmark. The scoring metric, GDT (Global Distance Test), ranges from zero to one hundred, where a score above ninety is generally considered on par with experimental accuracy. Even experimental structures of the same protein can differ by this much, due to inherent noise in X-ray crystallography. For over two decades, the best computational methods plateaued with top scores in the forties and fifties. Real progress, agonizing pace.</p>
+
+      <p>In 2018, at CASP13, a team from DeepMind, the London-based AI lab owned by Alphabet, entered for the first time with a system called AlphaFold. It won decisively but scored in the sixties and seventies for the most challenging targets. Impressive, not transformative. The community took notice but no one declared the problem solved.</p>
+
+      <p>Two years later, at CASP14 in 2020, DeepMind returned with AlphaFold 2. The system achieved a median GDT score of 92.4 across all targets, including the hardest ones. For many proteins, its predictions were indistinguishable from experimental structures. John Moult, CASP's founder, declared the protein structure prediction problem practically solved. A problem that had consumed fifty years and billions in research funding had been cracked by a neural network.</p>
+
+      <h2>4.2: How AlphaFold Works (for Non-Experts)</h2>
+
+      <p>AlphaFold's core idea is that evolution has already run billions of experiments on protein folding. We just need to read the results. When predicting a structure, AlphaFold starts by searching databases for related proteins across the tree of life. If a particular amino acid at one position always changes in tandem with one at another position (say, every time position 42 shifts from small to large, position 117 shifts from large to small), those two positions are probably close together in three-dimensional space. They are co-evolving to maintain a physical interaction. AlphaFold assembles these co-evolutionary signals from a multiple sequence alignment (MSA) of thousands of related proteins, building a kind of origami guide hinting at which parts of the chain are close together in space.</p>
+
+      <p>This evolutionary information feeds into a neural network architecture called the Evoformer, consisting of forty-eight layers of attention mechanisms, the same mathematics that powers large language models like ChatGPT. The Evoformer processes co-evolutionary signals alongside learned representations of amino acid chemistry and produces spatial constraints. A separate structure module takes those constraints and iteratively refines a three-dimensional model, adjusting atomic positions until the predicted structure satisfies the constraints. The system was trained on approximately one hundred and seventy thousand experimentally determined structures from the Protein Data Bank.</p>
+
+      <p>AlphaFold also provides confidence scores, pLDDT (predicted Local Distance Difference Test), for each part of its prediction, on a scale from zero to one hundred. Regions above ninety are predicted with high confidence and typically reliable for detailed structural analysis. Regions below fifty often correspond to genuinely disordered parts of the protein that do not adopt a fixed structure. This transparency tells researchers not just what AlphaFold thinks the structure is, but how much to trust each part of the prediction.</p>
+
+      <figure class="figure">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 190" role="img" aria-labelledby="ch4-title">
+  <title id="ch4-title">AlphaFold pLDDT confidence: green high confidence, yellow medium, red low/disordered regions</title>
+  <defs>
+    <linearGradient id="ch4-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4CAF50"/>
+      <stop offset="45%" stop-color="#FFC107"/>
+      <stop offset="100%" stop-color="#E53935"/>
+    </linearGradient>
+  </defs>
+  <!-- Protein ribbon (stylized) -->
+  <!-- Green: high confidence structured region -->
+  <path d="M35,88 C70,88 95,78 135,86 C158,90 175,68 198,72 C218,76 228,88 248,88"
+        stroke="#4CAF50" stroke-width="18" fill="none" stroke-linecap="round"/>
+  <!-- Yellow: medium confidence -->
+  <path d="M248,88 C268,88 290,82 310,88 C322,92 334,88 348,86"
+        stroke="#FFC107" stroke-width="18" fill="none" stroke-linecap="round"/>
+  <!-- Red: low confidence disordered loop -->
+  <path d="M348,86 C363,66 378,44 384,66 C390,88 374,108 362,97 C352,88 358,84 374,84 C393,84 408,88 425,90"
+        stroke="#E53935" stroke-width="18" fill="none" stroke-linecap="round"/>
+  <!-- Green: return to high confidence -->
+  <path d="M425,90 C450,90 465,84 488,86"
+        stroke="#4CAF50" stroke-width="18" fill="none" stroke-linecap="round"/>
+  <!-- Region labels with leader lines -->
+  <line x1="140" y1="112" x2="140" y2="97" stroke="#4CAF50" stroke-width="1" stroke-dasharray="2,3"/>
+  <text x="140" y="126" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#388E3C" font-weight="600">Reliable (&gt;90)</text>
+  <line x1="298" y1="112" x2="298" y2="94" stroke="#F9A825" stroke-width="1" stroke-dasharray="2,3"/>
+  <text x="298" y="126" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#F9A825" font-weight="600">Medium (50&#8211;90)</text>
+  <line x1="384" y1="150" x2="384" y2="116" stroke="#E53935" stroke-width="1" stroke-dasharray="2,3"/>
+  <text x="384" y="164" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#C62828" font-weight="600">Disordered (&lt;50)</text>
+  <!-- Gradient legend bar -->
+  <rect x="515" y="25" width="18" height="140" fill="url(#ch4-grad)" rx="3"/>
+  <line x1="533" y1="29" x2="538" y2="29" stroke="#6b6b6b" stroke-width="1"/>
+  <text x="542" y="33" font-family="Inter,sans-serif" font-size="9.5" fill="#6b6b6b">100</text>
+  <line x1="533" y1="97" x2="538" y2="97" stroke="#6b6b6b" stroke-width="1"/>
+  <text x="542" y="101" font-family="Inter,sans-serif" font-size="9.5" fill="#6b6b6b">50</text>
+  <line x1="533" y1="164" x2="538" y2="164" stroke="#6b6b6b" stroke-width="1"/>
+  <text x="542" y="168" font-family="Inter,sans-serif" font-size="9.5" fill="#6b6b6b">0</text>
+  <text x="524" y="182" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6b6b6b">pLDDT</text>
+</svg>
+        <figcaption>AlphaFold color-codes its confidence (pLDDT score). Green regions are reliable for drug binding analysis; red regions are likely disordered and lack a fixed structure.</figcaption>
+      </figure>
+
+      <h2>4.3: AlphaFold 3 and Beyond</h2>
+
+      <p>In May 2024, DeepMind unveiled AlphaFold 3, extending beyond single protein chains to predict how proteins interact with DNA, RNA, small molecules, and other proteins. The architecture shifted from the Evoformer to a diffusion-based model, the same class of generative AI used in image generators like DALL-E, but operating in three-dimensional molecular space. AlphaFold 3 can predict the structure of an entire molecular complex: a protein bound to a drug molecule, a transcription factor wrapped around DNA. For drug design, where understanding how a molecule fits into a protein's binding pocket is the central challenge, this has immediate practical value.</p>
+
+      <p>In October 2024, the Nobel Prize in Chemistry was awarded jointly to Demis Hassabis and John Jumper of DeepMind for AlphaFold, shared with David Baker of the University of Washington for computational protein design. The AlphaFold Protein Structure Database now contains predicted structures for more than two hundred million proteins, every protein from every organism whose genome has been sequenced, compared to roughly two hundred thousand structures determined by experiment over fifty-plus years.</p>
+
+      <h2>4.4: What AlphaFold Meant for Rosie</h2>
+
+      <p>For Conyngham, AlphaFold was the tool that made the leap from "list of mutations" to "vaccine design" possible. Once he had Rosie's mutation list, he needed to know what the corresponding mutated proteins looked like in three dimensions. Which parts were exposed on the surface, where the immune system could see them? How did the mutated region sit relative to the rest of the protein? Would the neoantigen peptide fold so that MHC molecules could grab and display it? Five years earlier, answering these questions would have required months of experimental lab work or simply gone unanswered. AlphaFold answered them computationally.</p>
+
+      <p>The AlphaFold Server is free. Anyone can submit a protein sequence and receive a predicted structure within minutes. ColabFold, a community-built implementation, runs on free Google Colab GPUs, so you do not even need your own hardware. Nobel Prize-winning technology, available to anyone with a web browser. Conyngham used these tools to model the mutated proteins, visualize where <span class="term" data-def="A mutation-derived peptide displayed on a cancer cell's surface, recognisable by the immune system as foreign">neoantigens</span> would sit on the protein surface, and make informed decisions about which targets to include in the vaccine.</p>
+
+      <div class="key-takeaways">
+        <h3>Key Takeaways</h3>
+        <ul>
+          <li>AlphaFold solved the 50-year protein folding problem at CASP14 in 2020 with GDT scores above 90 — equivalent to experimental accuracy.</li>
+          <li><span class="term" data-def="AlphaFold's per-residue confidence score (0–100). >90 = highly reliable; <50 = likely disordered">pLDDT</span> scores tell you how confident AlphaFold is in each part of the predicted structure — critical for vaccine target assessment.</li>
+          <li>AlphaFold 3 extends to protein–DNA, protein–small molecule, and molecular complex prediction — opening drug design applications.</li>
+          <li>The AlphaFold Protein Structure Database contains predicted structures for ~200 million proteins — freely available to any researcher.</li>
+        </ul>
+      </div>
+    </article>
+
+    <nav class="bottom-nav" aria-label="Chapter navigation">
+      <a href="chapter-3.html" class="prev">Chapter 3</a>
+      <a href="chapter-5.html" class="next">Chapter 5</a>
+    </nav>
+  </main>
+
+  <footer class="container">
+    <p class="disclaimer">This book is intended for educational purposes only and does not constitute medical advice. Always consult qualified healthcare professionals for medical decisions.</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

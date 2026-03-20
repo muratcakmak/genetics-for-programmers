@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The complete pipeline from tumor biopsy to personalized mRNA cancer vaccine: sequencing, variant calling, neoantigen prediction, AlphaFold, mRNA design, and manufacturing.">
+  <title>Chapter 7: The Full Pipeline &mdash; Understanding Genetics in the Age of AI</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <div id="reading-progress" aria-hidden="true"></div>
+
+  <a href="#content" class="skip-link">Skip to content</a>
+
+  <header class="top-bar">
+    <a href="index.html">Understanding Genetics in the Age of AI</a>
+    <span class="chapter-label">Chapter 7</span>
+  </header>
+
+  <main id="content" class="container">
+    <div class="chapter-header">
+      <span class="chapter-number">Chapter 7</span>
+      <h1 class="chapter-title">The Full Pipeline &mdash; From Tumor to Vaccine</h1>
+    </div>
+
+    <article class="content">
+      <h2>7.1: Overview</h2>
+
+      <p>Everything in the previous six chapters (DNA, the genetic code, cancer mutations, genome sequencing, protein folding, AlphaFold, the immune system, MHC binding, mRNA vaccines, lipid nanoparticles) converges into a single pipeline: a process that transforms a tumor biopsy into a personalized cancer vaccine. For Rosie, this pipeline, from sequencing to vaccine design, took less than two months.</p>
+
+      <!-- Pipeline Step Explorer (replaces static SVG) -->
+      <div class="figure" aria-label="Pipeline step explorer — click each step to see Rosie's data">
+        <p style="font-family:var(--sans);font-size:0.8rem;color:var(--text-muted);margin-bottom:1rem;text-align:center">Click each step to expand Rosie's actual data</p>
+
+        <div class="pipeline-step">
+          <div class="step-toggle">1. Tumor DNA Sequencing — ~2 weeks</div>
+          <div class="pipeline-step-detail">
+            <strong>For Rosie:</strong> Paired-end sequencing at UNSW Ramaciotti Centre for Genomics. Illumina platform, ~50× coverage of tumor and matched normal blood. Output: two <span class="term" data-def="The standard file format for raw sequencing reads — contains the DNA sequence + a quality score for every base">FASTQ</span> files totalling ~48 GB. Cost: $3,000 AUD. Both tumor biopsy and blood sample were required to distinguish cancer mutations from inherited variants.
+          </div>
+        </div>
+
+        <div class="pipeline-step">
+          <div class="step-toggle">2. Variant Calling — ~3 days</div>
+          <div class="pipeline-step-detail">
+            <strong>For Rosie:</strong> FASTQ files aligned to the canine reference genome (CanFam4) using BWA-MEM2. GATK Mutect2 identified <span class="term" data-def="A DNA change that occurs in a body cell after conception — not inherited, not passed to children">somatic mutations</span> by comparing tumor vs normal. Output: a <span class="term" data-def="Variant Call Format — a text file listing every detected genetic variant with its chromosomal position and quality metrics">VCF</span> file containing thousands of candidate mutations, filtered to ~300 high-confidence variants affecting protein-coding regions. Ran on a cloud laptop instance; no specialized hardware needed.
+          </div>
+        </div>
+
+        <div class="pipeline-step">
+          <div class="step-toggle">3. Neoantigen Prediction — ~1 day</div>
+          <div class="pipeline-step-detail">
+            <strong>For Rosie:</strong> Each mutation translated to all overlapping 8–11 amino acid peptides spanning the mutation site. NetMHCpan 4.1 predicted binding affinity to Rosie's MHC (HLA) alleles. Candidates with affinity &lt;500 nM ranked by Vaxrank, incorporating gene expression data. Final shortlist: <strong>17 high-confidence <span class="term" data-def="A mutation-derived peptide displayed on a cancer cell's surface, recognisable by the immune system as foreign">neoantigen</span> candidates</strong> from ~300 mutations.
+          </div>
+        </div>
+
+        <div class="pipeline-step">
+          <div class="step-toggle">4. Protein Structure Prediction — hours</div>
+          <div class="pipeline-step-detail">
+            <strong>For Rosie:</strong> Top candidates submitted to AlphaFold Server. Predicted structures visualized in PyMOL to confirm neoantigen peptides sat on the protein surface (not buried). <span class="term" data-def="AlphaFold's per-residue confidence score (0–100). >90 = highly reliable; <50 = likely disordered">pLDDT</span> scores above 90 for all selected regions. Structural confirmation reduced the list to <strong>12 final vaccine targets</strong>. Entire step took one afternoon on a standard laptop.
+          </div>
+        </div>
+
+        <div class="pipeline-step">
+          <div class="step-toggle">5. mRNA Vaccine Design — ~1 day</div>
+          <div class="pipeline-step-detail">
+            <strong>For Rosie:</strong> Poly-epitope mRNA construct: 12 neoantigen peptides connected by flexible glycine–serine linkers. Codon-optimized for canine ribosomes using CAMEOS. N1-methylpseudouridine substituted for uridine to reduce inflammation. 5' cap, poly-A tail, and UTR sequences selected for maximum stability. The final construct: a 2,100-nucleotide text file — emailable, reproducible anywhere.
+          </div>
+        </div>
+
+        <div class="pipeline-step">
+          <div class="step-toggle">6. Manufacturing &amp; Administration — ~3 months</div>
+          <div class="pipeline-step-detail">
+            <strong>For Rosie:</strong> mRNA synthesized by Prof. Pall Thordarson at the UNSW RNA Institute. Formulated into <span class="term" data-def="A ~100 nm fat bubble that encapsulates mRNA and smuggles it into cells, enabling mRNA vaccines">lipid nanoparticles</span>. Ethics approval via Prof. Rachel Allavena at University of Queensland — ~100 pages of documentation, initially denied, resubmitted, approved after 3 months. <strong>First injection: December 2025.</strong> Booster: February 2026. By mid-March 2026: largest tumor shrunk 75%, most others 50–75%.
+          </div>
+        </div>
+
+        <figcaption style="margin-top:1rem">The complete pipeline from biopsy to injected vaccine. Steps 1–5 are computational and can run anywhere with a laptop and internet access. Step 6 requires a specialist RNA synthesis lab.</figcaption>
+      </div>
+
+      <!-- Original static SVG kept hidden for reference -->
+      <figure class="figure" style="display:none" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448.05 496" role="img" aria-labelledby="ch7-svg-title" style="--bg:#ffffff;--fg:#1f2328;--line:#d1d9e0;--accent:#1E6B6B;--muted:#59636e;background:var(--bg)">
+<title id="ch7-svg-title">Pipeline flowchart: six steps from tumor DNA sequencing through variant calling, neoantigen prediction, protein structure prediction, mRNA vaccine design, to manufacturing and administration</title>
+<style>
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 30%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="4.8" refX="8" refY="2.4" orient="auto">
+    <polygon points="0 0, 8 2.4, 0 4.8" fill="var(--_arrow)" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="4.8" refX="0" refY="2.4" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.4, 8 4.8" fill="var(--_arrow)" />
+  </marker>
+</defs>
+<polyline points="224.025,76 224.025,116" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="224.025,152 224.025,192" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="224.025,228 224.025,268" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="224.025,304 224.025,344" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="224.025,380 224.025,420" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<rect x="86.475" y="40" width="275.1" height="36" rx="0" ry="0" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="0.75" />
+<rect x="107.925" y="116" width="232.20000000000002" height="36" rx="0" ry="0" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="0.75" />
+<rect x="90.04999999999998" y="192" width="267.95000000000005" height="36" rx="0" ry="0" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="0.75" />
+<rect x="107.925" y="268" width="232.20000000000002" height="36" rx="0" ry="0" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="0.75" />
+<rect x="97.2" y="344" width="253.65" height="36" rx="0" ry="0" fill="#e8f4f4" stroke="#1E6B6B" stroke-width="0.75" />
+<rect x="40" y="420" width="368.05" height="36" rx="0" ry="0" fill="#f5f0e8" stroke="#8B7355" stroke-width="0.75" />
+<text x="224.025" y="58" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1a1a">1. Tumor DNA Sequencing — ~2 weeks</text>
+<text x="224.025" y="134" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1a1a">2. Variant Calling — ~3 days</text>
+<text x="224.025" y="210" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1a1a">3. Neoantigen Prediction — ~1 day</text>
+<text x="224.025" y="286" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1a1a">4. Protein Structure — hours</text>
+<text x="224.025" y="362" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1a1a">5. mRNA Vaccine Design — ~1 day</text>
+<text x="224.025" y="438" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1a1a">6. Manufacturing and Administration — ~3 months</text>
+</svg>
+        <figcaption>Static pipeline diagram.</figcaption>
+      </figure>
+
+      <h2>7.2: Step 1 &mdash; Tumor DNA Sequencing</h2>
+
+      <p>The pipeline begins with biological material. Two tissue samples: tumor and healthy (usually blood). Paired sequencing is essential. You need to distinguish somatic mutations (cancer-specific changes) from germline variants (inherited differences that make every individual unique). Without the healthy comparison, you cannot identify which mutations belong to the cancer. For Rosie, paired sequencing was performed at the UNSW Ramaciotti Centre for Genomics at a cost of three thousand dollars.</p>
+
+      <p>The raw output is FASTQ files, enormous text files containing billions of short DNA reads with quality scores for each base. These reads are aligned to a reference genome using alignment software, producing a sorted, indexed BAM file mapping every sequenced fragment to its chromosomal position. At this stage, you have a comprehensive picture of DNA in both tumor and healthy tissue.</p>
+
+      <h2>7.3: Step 2 &mdash; Variant Calling</h2>
+
+      <p>Variant calling compares the tumor and normal sequences to identify somatic mutations. The most widely used tool is GATK's Mutect2, from the Broad Institute, which uses statistical models to distinguish real mutations from sequencing errors, alignment artifacts, and germline variants. The output is a VCF (Variant Call Format) file, a spreadsheet listing every detected mutation, its genomic location, the reference base, the alternate base, and quality metrics.</p>
+
+      <p>A typical solid tumor harbors one hundred to ten thousand somatic mutations, depending on cancer type and mutational burden. These are filtered for quality, removing low-confidence calls, variants in problematic regions, mutations unlikely to affect protein function. Each remaining mutation is annotated: does it change an amino acid (missense), introduce a premature stop (nonsense), or disrupt the reading frame (frameshift)? Only mutations that change the protein sequence are neoantigen candidates. Among those, only a small fraction will produce neoantigens the immune system can recognize.</p>
+
+      <h2>7.4: Step 3 &mdash; Neoantigen Prediction</h2>
+
+      <p>The pipeline narrows here, and AI becomes indispensable. Of all somatic mutations in a tumor, only about 0.5 to 2 percent produce peptides that bind strongly enough to MHC molecules to be displayed on the cell surface and potentially recognized by T-cells.</p>
+
+      <p>NetMHCpan is the key tool. For each mutated protein, it generates all possible peptide fragments of eight to eleven amino acids spanning the mutation site and predicts binding strength to the patient's specific MHC molecules. The threshold: affinity below five hundred nanomolar. Peptides that do not meet it are filtered out.</p>
+
+      <p>Surviving candidates are ranked using tools like Vaxrank (from the OpenVax project) or pVACtools, integrating binding affinity, gene expression level, whether the mutation creates a novel sequence absent from the normal proteome, and other metrics. From thousands of mutations, this pipeline typically yields ten to twenty high-confidence neoantigen candidates for vaccine inclusion, the targets most likely to provoke a strong, tumor-specific immune response.</p>
+
+      <h2>7.5: Step 4 &mdash; Protein Structure Prediction</h2>
+
+      <p>With ranked candidates, the next question: what do these mutated proteins look like in three dimensions? AlphaFold enters the pipeline. By predicting the mutated protein's structure, you can assess whether the neoantigen peptide sits on the surface (accessible to the immune system) or is buried in the interior (where it might not be processed and displayed). You can also model how the peptide interacts with MHC molecules, confirming binding predictions with structural evidence.</p>
+
+      <p>Conyngham submitted protein sequences to the AlphaFold Server, which returned predicted structures within minutes. He visualized the mutant proteins, saw where mutations fell in the structure, and assessed prediction confidence using pLDDT scores. This structural information refined neoantigen selection, adding three-dimensional biological insight to the sequence-based predictions. Five years ago, this step would have required months of lab work or been skipped entirely. Now it takes an afternoon.</p>
+
+      <h2>7.6: Step 5 &mdash; mRNA Vaccine Design</h2>
+
+      <p>With final targets selected, the next step is designing the mRNA construct. The standard approach is a poly-epitope design: a single mRNA molecule encoding multiple neoantigen peptides strung together, separated by linker sequences for efficient processing. One injection trains the immune system against ten or more tumor-specific targets simultaneously, reducing the chance that cancer escapes by losing a single antigen.</p>
+
+      <p>The mRNA sequence is optimized using codon optimization algorithms, selecting efficient codons for each amino acid. Modified nucleosides, specifically N1-methylpseudouridine, replace standard uridine to reduce inflammation and increase stability. Grok helped Conyngham with aspects of construct design, including codon optimization and structural element selection. The vaccine design is a digital product, a sequence of letters in a text file, emailable, shareable, reproducible anywhere in the world. The design process, thanks to AI, can be performed by anyone with pipeline knowledge. What cannot be done from a laptop is the next step.</p>
+
+      <h2>7.7: Step 6 &mdash; Manufacturing and Administration</h2>
+
+      <p>Designing an mRNA vaccine on a computer is one thing. Turning it into an injectable treatment is another. Professor Pall Thordarson at the UNSW RNA Institute synthesized the mRNA and formulated it into <span class="term" data-def="A ~100 nm fat bubble that encapsulates mRNA and smuggles it into cells, enabling mRNA vaccines">lipid nanoparticles</span>, requiring specialized equipment, clean-room conditions, and deep RNA chemistry expertise. This cannot be done in a kitchen or a garage, and it is important to say so. The gap between digital design and physical product remains significant, and crossing it requires trained professionals and institutional infrastructure.</p>
+
+      <p>The other major hurdle was ethics approval. Conyngham and his collaborators prepared approximately one hundred pages of documentation to justify using an experimental treatment on an animal. UNSW initially denied the application. Professor Rachel Allavena at the University of Queensland took on the ethics process, which took three months. In December 2025, Rosie received her first injection. A booster followed in February 2026. By mid-March 2026, her largest tumor had shrunk by seventy-five percent, and most other tumors had reduced by fifty to seventy-five percent. One <span class="term" data-def="A mutation-derived peptide displayed on a cancer cell's surface, recognisable by the immune system as foreign">neoantigen</span> was non-responsive, and a second vaccine targeting additional targets was in preparation. Sequencing to vaccine design in under two months. Ethics application to injection in three months. First dose to measurable shrinkage in roughly three months. The entire arc, from a desperate search query to a dog chasing rabbits, spanned less than a year.</p>
+
+      <div class="key-takeaways">
+        <h3>Key Takeaways</h3>
+        <ul>
+          <li>The pipeline has 6 stages: sequencing → variant calling → neoantigen prediction → structure → mRNA design → manufacturing.</li>
+          <li>Steps 1–5 are now computational and can be performed by anyone with pipeline knowledge, a laptop, and internet access.</li>
+          <li>Step 6 (manufacturing and ethics) still requires specialized labs and institutional infrastructure — this cannot be DIY.</li>
+          <li>For Rosie: sequencing to vaccine design took under 2 months; first measurable tumor response came ~3 months after injection.</li>
+        </ul>
+      </div>
+    </article>
+
+    <nav class="bottom-nav" aria-label="Chapter navigation">
+      <a href="chapter-6.html" class="prev">Chapter 6</a>
+      <a href="chapter-8.html" class="next">Chapter 8</a>
+    </nav>
+  </main>
+
+  <footer class="container">
+    <p class="disclaimer">This book is intended for educational purposes only and does not constitute medical advice. Always consult qualified healthcare professionals for medical decisions.</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
