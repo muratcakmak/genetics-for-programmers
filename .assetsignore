@@ -1,0 +1,7 @@
+*.md
+LICENSE
+README.md
+wrangler.toml
+.git
+node_modules
+.wrangler
