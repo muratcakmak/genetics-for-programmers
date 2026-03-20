@@ -1,5 +1,7 @@
 # Genetics for Programmers
 
+**Live site: [genetics.omc345.com](http://genetics.omc345.com/)**
+
 > A curated learning roadmap for software engineers who want to understand genetics, CRISPR, AlphaFold, and mRNA vaccine design — from zero biology background to computational biology.
 
 Inspired by [the story of Paul Conyngham](https://www.the-scientist.com/chatgpt-and-alphafold-help-design-personalized-vaccine-for-dog-with-cancer-72771), a tech entrepreneur with no biology background who used ChatGPT, AlphaFold, and computational tools to design a personalized mRNA cancer vaccine for his dog Rosie.
